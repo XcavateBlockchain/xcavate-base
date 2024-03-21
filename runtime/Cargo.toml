@@ -66,6 +66,12 @@ pallet-insecure-randomness-collective-flip = { workspace = true }
 pallet-asset-tx-payment = { workspace = true }
 pallet-nft-fractionalization = { workspace = true }
 
+# Custom pallet
+pallet-community-loan-pool = {  default-features = false, path = "../pallets/community-loan-pool" }
+pallet-xcavate-staking = {  default-features = false, path = "../pallets/xcavate-staking" }
+pallet-xcavate-whitelist = {  default-features = false, path = "../pallets/xcavate-whitelist" }
+pallet-nft-marketplace = {  default-features = false, path = "../pallets/nft-marketplace" }
+
 # Polkadot
 pallet-xcm = { workspace = true }
 polkadot-parachain-primitives = { workspace = true }
@@ -142,6 +148,10 @@ std = [
 	"pallet-insecure-randomness-collective-flip/std",
 	"pallet-asset-tx-payment/std",
 	"pallet-nft-fractionalization/std",
+	"pallet-community-loan-pool/std",
+	"pallet-xcavate-staking/std",
+	"pallet-nft-marketplace/std",
+	"pallet-xcavate-whitelist/std",
 	"parachain-info/std",
 	"parachains-common/std",
 	"parity-scale-codec/std",
@@ -195,6 +205,10 @@ runtime-benchmarks = [
 	"pallet-xcm/runtime-benchmarks",
 	"pallet-nfts/runtime-benchmarks",
 	"pallet-nft-fractionalization/runtime-benchmarks",
+	"pallet-community-loan-pool/runtime-benchmarks",
+	"pallet-xcavate-staking/runtime-benchmarks",
+	"pallet-nft-marketplace/runtime-benchmarks",
+	"pallet-xcavate-whitelist/runtime-benchmarks",
 	"parachains-common/runtime-benchmarks",
 	"polkadot-parachain-primitives/runtime-benchmarks",
 	"polkadot-runtime-common/runtime-benchmarks",
@@ -237,6 +251,10 @@ try-runtime = [
 	"pallet-insecure-randomness-collective-flip/try-runtime",
 	"pallet-asset-tx-payment/try-runtime",
 	"pallet-nft-fractionalization/try-runtime",
+	"pallet-community-loan-pool/try-runtime",
+	"pallet-xcavate-staking/try-runtime",
+	"pallet-nft-marketplace/try-runtime",
+	"pallet-xcavate-whitelist/try-runtime",
 	"parachain-info/try-runtime",
 	"polkadot-runtime-common/try-runtime",
 	"sp-runtime/try-runtime",

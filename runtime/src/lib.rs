@@ -819,6 +819,98 @@ impl pallet_treasury::Config for Runtime {
 }
 
 parameter_types! {
+	pub const CommunityLoanPalletId: PalletId = PalletId(*b"py/loana");
+	pub const MaxLoans: u32 = 1000;
+	pub const VotingTime: BlockNumber = 10;
+	pub const MaximumCommitteeMembers: u32 = 10;
+	pub const MaxMilestones: u32 = 10;
+}
+
+/// Configure the pallet-community-loan-pool in pallets/community-loan-pool.
+impl pallet_community_loan_pool::Config for Runtime {
+	type PalletId = CommunityLoanPalletId;
+	type Currency = Balances;
+	type CommitteeOrigin = EnsureRoot<Self::AccountId>;
+	type RuntimeEvent = RuntimeEvent;
+	type ProposalBond = ProposalBond;
+	type ProposalBondMinimum = ProposalBondMinimum;
+	type ProposalBondMaximum = ();
+	type OnSlash = ();
+	type MaxOngoingLoans = MaxLoans;
+	type TimeProvider = Timestamp;
+	type WeightInfo = pallet_community_loan_pool::weights::SubstrateWeight<Runtime>;
+	#[cfg(feature = "runtime-benchmarks")]
+	type Helper = pallet_community_loan_pool::NftHelper;
+	type VotingTime = VotingTime;
+	type MaxCommitteeMembers = MaximumCommitteeMembers;
+	type MaxMilestonesPerProject = MaxMilestones;
+	type CollectionId = u32;
+	type ItemId = u32;
+}
+
+parameter_types! {
+	pub const MinimumRemainingAmount: Balance = DOLLARS;
+	pub const MaxStaker: u32 = 5000;
+	pub const RewardsDistributing: BlockNumber = 1;
+}
+
+/// Configure the pallet-xcavate-staking in pallets/xcavate-staking.
+impl pallet_xcavate_staking::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_xcavate_staking::weights::SubstrateWeight<Runtime>;
+	type Currency = Balances;
+	type MinimumRemainingAmount = MinimumRemainingAmount;
+	type MaxStakers = MaxStaker;
+	type TimeProvider = Timestamp;
+	type RewardsDistributingTime = RewardsDistributing;
+}
+
+parameter_types! {
+	pub const MaxWhitelistUsers: u32 = 1000;
+}
+
+/// Configure the pallet-xcavate-whitelist in pallets/xcavate-whitelist.
+impl pallet_xcavate_whitelist::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_xcavate_whitelist::weights::SubstrateWeight<Runtime>;
+	type WhitelistOrigin = EnsureRoot<Self::AccountId>;
+	type MaxUsersInWhitelist = MaxWhitelistUsers;
+}
+
+
+parameter_types! {
+	pub const NftMarketplacePalletId: PalletId = PalletId(*b"py/nftxc");
+	pub const MaxNftTokens: u32 = 100;
+}
+
+/// Configure the pallet-nft-marketplace in pallets/nft-marketplace.
+impl pallet_nft_marketplace::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_nft_marketplace::weights::SubstrateWeight<Runtime>;
+	type Currency = Balances;
+	type PalletId = NftMarketplacePalletId;
+	type MaxNftToken = MaxNftTokens;
+	type LocationOrigin = EnsureRoot<Self::AccountId>;
+	#[cfg(feature = "runtime-benchmarks")]
+	type Helper = pallet_nft_marketplace::NftHelper;
+	type CollectionId = u32;
+	type ItemId = u32;
+	type TreasuryId = TreasuryPalletId;
+	type CommunityProjectsId = CommunityProjectPalletId;
+	type FractionalizeCollectionId = <Self as pallet_nfts::Config>::CollectionId;
+	type FractionalizeItemId = <Self as pallet_nfts::Config>::ItemId;
+	type AssetId = <Self as pallet_assets::Config>::AssetId;
+	type AssetId2 = u32;
+}
+
+parameter_types! {
+	pub const CommunityProjectPalletId: PalletId = PalletId(*b"py/cmprj");
+	pub const MaxNftType: u32 = 4;
+	pub const MaxNftsInCollectionProject: u32 = 100;
+	pub const MaxOngoingProject: u32 = 250;
+}
+
+parameter_types! {
 	pub Features: PalletFeatures = PalletFeatures::all_enabled();
 	pub const MaxAttributesPerCall: u32 = 10;
 	pub const CollectionDeposit: Balance = DOLLARS;
@@ -831,8 +923,6 @@ parameter_types! {
 	pub const MaxDeadlineDuration: BlockNumber = 12 * 30 * DAYS;
 
 	pub const UserStringLimit: u32 = 5;
-    pub const CommunityLoanPalletId: PalletId = PalletId(*b"py/loana");
-
 }
 
 ord_parameter_types! {
@@ -907,6 +997,8 @@ impl pallet_nft_fractionalization::Config for Runtime {
 
 impl pallet_insecure_randomness_collective_flip::Config for Runtime {}
 
+
+
 // Create the runtime by composing the FRAME pallets that were previously
 // configured.
 construct_runtime!(
@@ -928,7 +1020,7 @@ construct_runtime!(
         TransactionPayment: pallet_transaction_payment = 11,
         Assets: pallet_assets = 12,
         Treasury: pallet_treasury::{Pallet, Call, Storage, Config<T>, Event<T>} = 13,
-        AssetTxPayment: pallet_asset_tx_payment,
+        AssetTxPayment: pallet_asset_tx_payment = 14,
 
         // Governance
         Sudo: pallet_sudo = 15,
@@ -941,6 +1033,12 @@ construct_runtime!(
         Nfts: pallet_nfts = 20,
         RandomnessCollectiveFlip: pallet_insecure_randomness_collective_flip = 21,
         NftFractionalization: pallet_nft_fractionalization = 22,
+
+        // Custom pallets
+        CommunityLoanPool: pallet_community_loan_pool = 201,
+        XcavateStaking: pallet_xcavate_staking = 202,
+        NftMarketplace: pallet_nft_marketplace = 203,
+        Xcavate_Whitelist: pallet_xcavate_whitelist = 204,
 
         // Collator Support. The order of these 4 are important and shall not change.
         Authorship: pallet_authorship = 40,
@@ -965,6 +1063,10 @@ mod benches {
         [pallet_balances, Balances]
         [pallet_session, SessionBench::<Runtime>]
         [pallet_timestamp, Timestamp]
+        [pallet_community_loan_pool, CommunityLoanPool]
+        [pallet_xcavate_staking, XcavateStaking]
+        [pallet_nft_marketplace, NftMarketplace]
+        [pallet_xcavate_whitelist, Whitelist]
         [pallet_message_queue, MessageQueue]
         [pallet_sudo, Sudo]
         [pallet_collator_selection, CollatorSelection]

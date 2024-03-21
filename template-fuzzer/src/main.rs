@@ -62,6 +62,7 @@ fn main() {
             transaction_payment: Default::default(),
             sudo: SudoConfig { key: Some(root) },
             treasury: Default::default(),
+            community_loan_pool: Default::default(),
         }
         .build_storage()
         .unwrap()
