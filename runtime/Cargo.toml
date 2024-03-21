@@ -58,6 +58,14 @@ sp-std = { workspace = true }
 sp-transaction-pool = { workspace = true }
 sp-version = { workspace = true }
 
+# Extra added pallet
+pallet-nfts = { workspace = true }
+pallet-nfts-runtime-api = { workspace = true }
+node-primitives = { workspace = true }
+pallet-insecure-randomness-collective-flip = { workspace = true }
+pallet-asset-tx-payment = { workspace = true }
+pallet-nft-fractionalization = { workspace = true }
+
 # Polkadot
 pallet-xcm = { workspace = true }
 polkadot-parachain-primitives = { workspace = true }
@@ -128,6 +136,12 @@ std = [
 	"pallet-utility/std",
 	"pallet-whitelist/std",
 	"pallet-xcm/std",
+	"pallet-nfts/std",
+	"pallet-nfts-runtime-api/std",
+	"node-primitives/std",
+	"pallet-insecure-randomness-collective-flip/std",
+	"pallet-asset-tx-payment/std",
+	"pallet-nft-fractionalization/std",
 	"parachain-info/std",
 	"parachains-common/std",
 	"parity-scale-codec/std",
@@ -179,6 +193,8 @@ runtime-benchmarks = [
 	"pallet-utility/runtime-benchmarks",
 	"pallet-whitelist/runtime-benchmarks",
 	"pallet-xcm/runtime-benchmarks",
+	"pallet-nfts/runtime-benchmarks",
+	"pallet-nft-fractionalization/runtime-benchmarks",
 	"parachains-common/runtime-benchmarks",
 	"polkadot-parachain-primitives/runtime-benchmarks",
 	"polkadot-runtime-common/runtime-benchmarks",
@@ -217,6 +233,10 @@ try-runtime = [
 	"pallet-utility/try-runtime",
 	"pallet-whitelist/try-runtime",
 	"pallet-xcm/try-runtime",
+	"pallet-nfts/try-runtime",
+	"pallet-insecure-randomness-collective-flip/try-runtime",
+	"pallet-asset-tx-payment/try-runtime",
+	"pallet-nft-fractionalization/try-runtime",
 	"parachain-info/try-runtime",
 	"polkadot-runtime-common/try-runtime",
 	"sp-runtime/try-runtime",

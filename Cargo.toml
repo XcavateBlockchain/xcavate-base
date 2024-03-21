@@ -31,12 +31,14 @@ frame-benchmarking-cli = { git = "https://github.com/paritytech/polkadot-sdk", d
 frame-executive = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 frame-support = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 frame-system = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+frame-election-provider-support = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 frame-system-benchmarking = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 frame-system-rpc-runtime-api = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 frame-try-runtime = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 pallet-assets = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 pallet-aura = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 pallet-authorship = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+pallet-im-online = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 pallet-balances = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 pallet-conviction-voting = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 pallet-message-queue = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
@@ -75,6 +77,7 @@ sp-arithmetic = { git = "https://github.com/paritytech/polkadot-sdk", default-fe
 sp-block-builder = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 sp-blockchain = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 sp-consensus-aura = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+sp-consensus-babe = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 sp-core = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 sp-genesis-builder = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 sp-inherents = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
@@ -92,6 +95,16 @@ substrate-build-script-utils = { git = "https://github.com/paritytech/polkadot-s
 substrate-frame-rpc-system = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 substrate-prometheus-endpoint = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 substrate-wasm-builder = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-v1.7.0" }
+
+# Extra added pallet
+pallet-nfts = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+pallet-uniques = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+pallet-nfts-runtime-api = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+node-primitives = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+pallet-insecure-randomness-collective-flip = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+pallet-asset-tx-payment = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+pallet-staking = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
+pallet-nft-fractionalization = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }
 
 # Polkadot
 pallet-xcm = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, tag = "polkadot-v1.7.0" }

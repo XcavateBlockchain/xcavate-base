@@ -11,6 +11,7 @@ pub mod governance;
 mod weights;
 pub mod xcm_config;
 
+use crate::constants::currency::*;
 #[cfg(feature = "async-backing")]
 use cumulus_pallet_parachain_system::RelayNumberMonotonicallyIncreases;
 #[cfg(not(feature = "async-backing"))]
@@ -18,6 +19,7 @@ use cumulus_pallet_parachain_system::RelayNumberStrictlyIncreases;
 use cumulus_primitives_core::{AggregateMessageOrigin, ParaId};
 use frame_support::{
     construct_runtime, derive_impl,
+    ord_parameter_types,
     dispatch::DispatchClass,
     genesis_builder_helper::{build_config, create_default_config},
     parameter_types,
@@ -29,7 +31,7 @@ use frame_support::{
         constants::WEIGHT_REF_TIME_PER_SECOND, ConstantMultiplier, Weight, WeightToFeeCoefficient,
         WeightToFeeCoefficients, WeightToFeePolynomial,
     },
-    PalletId,
+    PalletId, BoundedVec,
 };
 use frame_system::{
     limits::{BlockLength, BlockWeights},
@@ -47,6 +49,7 @@ use polkadot_runtime_common::{
     xcm_sender::NoPriceForMessageDelivery,
     BlockHashCount, SlowAdjustingFeeUpdate,
 };
+use pallet_nfts::PalletFeatures;
 use scale_info::TypeInfo;
 use smallvec::smallvec;
 use sp_api::impl_runtime_apis;
@@ -58,6 +61,7 @@ use sp_runtime::{
     create_runtime_str, generic, impl_opaque_keys,
     traits::{
         AccountIdLookup, BlakeTwo256, Block as BlockT, IdentifyAccount, IdentityLookup, Verify,
+        AccountIdConversion, ConvertInto,
     },
     transaction_validity::{TransactionSource, TransactionValidity},
     ApplyExtrinsicResult, MultiSignature, RuntimeDebug,
@@ -75,6 +79,9 @@ use xcm::{
 use xcm_builder::PayOverXcm;
 #[cfg(not(feature = "runtime-benchmarks"))]
 use xcm_builder::ProcessXcmMessage;
+/// Implementations of some helper traits passed into runtime modules as associated types.
+pub mod impls;
+use impls::CreditToBlockAuthor;
 
 use crate::{
     constants::currency::{deposit, CENTS, EXISTENTIAL_DEPOSIT, MICROCENTS, MILLICENTS},
@@ -127,6 +134,7 @@ pub type SignedExtra = (
     frame_system::CheckNonce<Runtime>,
     frame_system::CheckWeight<Runtime>,
     pallet_transaction_payment::ChargeTransactionPayment<Runtime>,
+    pallet_asset_tx_payment::ChargeAssetTxPayment<Runtime>,
 );
 
 /// Unchecked extrinsic type as expected by this runtime.
@@ -524,7 +532,7 @@ parameter_types! {
     pub const AssetDeposit: Balance = 10 * CENTS;
     pub const AssetAccountDeposit: Balance = deposit(1, 16);
     pub const ApprovalDeposit: Balance = EXISTENTIAL_DEPOSIT;
-    pub const StringLimit: u32 = 50;
+    pub const StringLimit: u32 = 5000;
     pub const MetadataDepositBase: Balance = deposit(1, 68);
     pub const MetadataDepositPerByte: Balance = deposit(0, 1);
     pub const RemoveItemsLimit: u32 = 1000;
@@ -810,6 +818,95 @@ impl pallet_treasury::Config for Runtime {
     type WeightInfo = pallet_treasury::weights::SubstrateWeight<Runtime>;
 }
 
+parameter_types! {
+	pub Features: PalletFeatures = PalletFeatures::all_enabled();
+	pub const MaxAttributesPerCall: u32 = 10;
+	pub const CollectionDeposit: Balance = DOLLARS;
+	pub const ItemDeposit: Balance = DOLLARS;
+	pub const KeyLimit: u32 = 32;
+	pub const ValueLimit: u32 = 256;
+	pub const ApprovalsLimit: u32 = 20;
+	pub const ItemAttributesApprovalsLimit: u32 = 20;
+	pub const MaxTips: u32 = 10;
+	pub const MaxDeadlineDuration: BlockNumber = 12 * 30 * DAYS;
+
+	pub const UserStringLimit: u32 = 5;
+    pub const CommunityLoanPalletId: PalletId = PalletId(*b"py/loana");
+
+}
+
+ord_parameter_types! {
+	pub const CollectionCreationOrigin: AccountId = AccountIdConversion::<AccountId>::into_account_truncating(&CommunityLoanPalletId::get());
+}
+
+impl pallet_nfts::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type CollectionId = u32;
+	type ItemId = u32;
+	type Currency = Balances;
+	type ForceOrigin = frame_system::EnsureRoot<AccountId>;
+	type CollectionDeposit = CollectionDeposit;
+	type ItemDeposit = ItemDeposit;
+	type MetadataDepositBase = MetadataDepositBase;
+	type AttributeDepositBase = MetadataDepositBase;
+	type DepositPerByte = MetadataDepositPerByte;
+	type StringLimit = StringLimit;
+	type KeyLimit = KeyLimit;
+	type ValueLimit = ValueLimit;
+	type ApprovalsLimit = ApprovalsLimit;
+	type ItemAttributesApprovalsLimit = ItemAttributesApprovalsLimit;
+	type MaxTips = MaxTips;
+	type MaxDeadlineDuration = MaxDeadlineDuration;
+	type MaxAttributesPerCall = MaxAttributesPerCall;
+	type Features = Features;
+	type OffchainSignature = Signature;
+	type OffchainPublic = <Signature as Verify>::Signer;
+	type WeightInfo = pallet_nfts::weights::SubstrateWeight<Runtime>;
+	#[cfg(feature = "runtime-benchmarks")]
+	type Helper = ();
+	//type CreateOrigin = AsEnsureOriginWithArg<EnsureSignedBy<CollectionCreationOrigin, AccountId>>;
+	type CreateOrigin = AsEnsureOriginWithArg<EnsureSigned<AccountId>>;
+	type Locker = ();
+}
+
+impl pallet_asset_tx_payment::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type Fungibles = Assets;
+	type OnChargeAssetTransaction = pallet_asset_tx_payment::FungiblesAdapter<
+		pallet_assets::BalanceToAssetBalance<Balances, Runtime, ConvertInto>,
+		CreditToBlockAuthor,
+	>;
+}
+
+parameter_types! {
+	pub const NftFractionalizationPalletId: PalletId = PalletId(*b"fraction");
+	pub NewAssetSymbol: BoundedVec<u8, StringLimit> = (*b"BRIX").to_vec().try_into().unwrap();
+	pub NewAssetName: BoundedVec<u8, StringLimit> = (*b"Brix").to_vec().try_into().unwrap();
+	pub const Deposit: Balance = DOLLARS;
+}
+
+impl pallet_nft_fractionalization::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type Deposit = Deposit;
+	type Currency = Balances;
+	type NewAssetSymbol = NewAssetSymbol;
+	type NewAssetName = NewAssetName;
+	type NftCollectionId = <Self as pallet_nfts::Config>::CollectionId;
+	type NftId = <Self as pallet_nfts::Config>::ItemId;
+	type AssetBalance = <Self as pallet_balances::Config>::Balance;
+	type AssetId = <Self as pallet_assets::Config>::AssetId;
+	type Assets = Assets;
+	type Nfts = Nfts;
+	type PalletId = NftFractionalizationPalletId;
+	type WeightInfo = ();
+	type StringLimit = StringLimit;
+	#[cfg(feature = "runtime-benchmarks")]
+	type BenchmarkHelper = ();
+	type RuntimeHoldReason = RuntimeHoldReason;
+}
+
+impl pallet_insecure_randomness_collective_flip::Config for Runtime {}
+
 // Create the runtime by composing the FRAME pallets that were previously
 // configured.
 construct_runtime!(
@@ -831,6 +928,7 @@ construct_runtime!(
         TransactionPayment: pallet_transaction_payment = 11,
         Assets: pallet_assets = 12,
         Treasury: pallet_treasury::{Pallet, Call, Storage, Config<T>, Event<T>} = 13,
+        AssetTxPayment: pallet_asset_tx_payment,
 
         // Governance
         Sudo: pallet_sudo = 15,
@@ -839,18 +937,23 @@ construct_runtime!(
         Origins: pallet_custom_origins::{Origin} = 18,
         Whitelist: pallet_whitelist::{Pallet, Call, Storage, Event<T>} = 19,
 
+        // Assets
+        Nfts: pallet_nfts = 20,
+        RandomnessCollectiveFlip: pallet_insecure_randomness_collective_flip = 21,
+        NftFractionalization: pallet_nft_fractionalization = 22,
+
         // Collator Support. The order of these 4 are important and shall not change.
-        Authorship: pallet_authorship = 20,
-        CollatorSelection: pallet_collator_selection = 21,
-        Session: pallet_session = 22,
-        Aura: pallet_aura = 23,
-        AuraExt: cumulus_pallet_aura_ext = 24,
+        Authorship: pallet_authorship = 40,
+        CollatorSelection: pallet_collator_selection = 41,
+        Session: pallet_session = 42,
+        Aura: pallet_aura = 43,
+        AuraExt: cumulus_pallet_aura_ext = 44,
 
         // XCM Helpers
-        XcmpQueue: cumulus_pallet_xcmp_queue = 30,
-        PolkadotXcm: pallet_xcm = 31,
-        CumulusXcm: cumulus_pallet_xcm = 32,
-        MessageQueue: pallet_message_queue = 33,
+        XcmpQueue: cumulus_pallet_xcmp_queue = 50,
+        PolkadotXcm: pallet_xcm = 51,
+        CumulusXcm: cumulus_pallet_xcm = 52,
+        MessageQueue: pallet_message_queue = 53,
     }
 );
 
@@ -866,6 +969,8 @@ mod benches {
         [pallet_sudo, Sudo]
         [pallet_collator_selection, CollatorSelection]
         [cumulus_pallet_xcmp_queue, XcmpQueue]
+        [pallet_nfts, Nfts]
+        [pallet_nft_fractionalization, NftFractionalization]
     );
 }
 
