@@ -910,6 +910,66 @@ parameter_types! {
 	pub const MaxOngoingProject: u32 = 250;
 }
 
+/// Configure the pallet-community-projects in pallets/community-projects.
+impl pallet_community_projects::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_community_projects::weights::SubstrateWeight<Runtime>;
+	type Currency = Balances;
+	type PalletId = CommunityProjectPalletId;
+	type MaxNftTypes = MaxNftType;
+	type MaxNftInCollection = MaxNftsInCollectionProject;
+	#[cfg(feature = "runtime-benchmarks")]
+	type Helper = pallet_community_projects::NftHelper;
+	type TimeProvider = Timestamp;
+	type MaxOngoingProjects = MaxOngoingProject;
+	type AssetId = u32;
+	type CollectionId = u32;
+	type ItemId = u32;
+	type MinimumRemainingAmount = MinimumRemainingAmount;
+}
+
+parameter_types! {
+	pub const MinimumStakingAmount: Balance = 100 * DOLLARS;
+	pub const PropertyManagementPalletId: PalletId = PalletId(*b"py/ppmmt");
+	pub const MaxProperty: u32 = 1000;
+	pub const MaxLettingAgent: u32 = 100;
+	pub const MaxLocation: u32 = 100;
+}
+
+/// Configure the pallet-property-management in pallets/property-management.
+impl pallet_property_management::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_property_management::weights::SubstrateWeight<Runtime>;
+	type Currency = Balances;
+	type PalletId = PropertyManagementPalletId;
+	type AgentOrigin = EnsureRoot<Self::AccountId>;
+	type MinStakingAmount = MinimumStakingAmount;
+	type MaxProperties = MaxProperty;
+	type MaxLettingAgents = MaxLettingAgent;
+	type MaxLocations = MaxLocation;
+}
+
+parameter_types! {
+	pub const PropertyVotingTime: BlockNumber = 30;
+	pub const MaxVoteForBlock: u32 = 100;
+	pub const MinimumSlashingAmount: Balance = 10 * DOLLARS;
+	pub const MaximumVoter: u32 = 100;
+	pub const VotingThreshold: u8 = 67;
+}
+
+/// Configure the pallet-property-governance in pallets/property-governance.
+impl pallet_property_governance::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_property_governance::weights::SubstrateWeight<Runtime>;
+	type Currency = Balances;
+	type VotingTime = PropertyVotingTime;
+	type MaxVotesForBlock =  MaxVoteForBlock;
+	type Slash = ();
+	type MinSlashingAmount = MinimumSlashingAmount;
+	type MaxVoter = MaximumVoter;
+	type Threshold = VotingThreshold;
+} 
+
 parameter_types! {
 	pub Features: PalletFeatures = PalletFeatures::all_enabled();
 	pub const MaxAttributesPerCall: u32 = 10;
@@ -1038,7 +1098,10 @@ construct_runtime!(
         CommunityLoanPool: pallet_community_loan_pool = 201,
         XcavateStaking: pallet_xcavate_staking = 202,
         NftMarketplace: pallet_nft_marketplace = 203,
+        CommunityProject: pallet_community_projects = 207,
         Xcavate_Whitelist: pallet_xcavate_whitelist = 204,
+        PropertyManagement: pallet_property_management = 205,
+		PropertyGovernance: pallet_property_governance = 206,
 
         // Collator Support. The order of these 4 are important and shall not change.
         Authorship: pallet_authorship = 40,
@@ -1066,7 +1129,10 @@ mod benches {
         [pallet_community_loan_pool, CommunityLoanPool]
         [pallet_xcavate_staking, XcavateStaking]
         [pallet_nft_marketplace, NftMarketplace]
+        [pallet_community_projects, CommunityProject]
         [pallet_xcavate_whitelist, Whitelist]
+        [pallet_property_management, PropertyManagement]
+		[pallet_property_governance, PropertyGovernance]
         [pallet_message_queue, MessageQueue]
         [pallet_sudo, Sudo]
         [pallet_collator_selection, CollatorSelection]

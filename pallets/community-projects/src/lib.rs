@@ -2,8 +2,6 @@
 
 pub use pallet::*;
 
-use pallet_assets::Instance1;
-
 use frame_support::{
 	traits::{
 		Currency, ExistenceRequirement::KeepAlive, Incrementable, LockIdentifier, LockableCurrency,
@@ -40,7 +38,7 @@ pub use weights::*;
 
 pub type AccountIdOf<T> = <T as frame_system::Config>::AccountId;
 
-type BalanceOf<T> = <T as pallet_assets::Config<pallet_assets::Instance1>>::Balance;
+type BalanceOf<T> = <T as pallet_assets::Config>::Balance;
 
 type BalanceOf1<T> = <<T as pallet_nfts::Config>::Currency as Currency<
 	<T as frame_system::Config>::AccountId,
@@ -167,7 +165,7 @@ pub mod pallet {
 	pub trait Config:
 		frame_system::Config
 		+ pallet_nfts::Config
-		+ pallet_assets::Config<Instance1>
+		+ pallet_assets::Config
 		+ pallet_xcavate_whitelist::Config
 	{
 		/// Because this pallet emits events, it depends on the runtime's definition of an event.
@@ -189,7 +187,7 @@ pub mod pallet {
 		type Helper: crate::BenchmarkHelper<
 			<Self as pallet::Config>::CollectionId,
 			<Self as pallet::Config>::ItemId,
-			<Self as pallet_assets::Config<Instance1>>::AssetId,
+			<Self as pallet_assets::Config>::AssetId,
 			Self,
 		>;
 		/// lose coupling of pallet timestamp.
@@ -198,7 +196,7 @@ pub mod pallet {
 		#[pallet::constant]
 		type MaxOngoingProjects: Get<u32>;
 		/// Asset id type from pallet assets.
-		type AssetId: IsType<<Self as pallet_assets::Config<Instance1>>::AssetId>
+		type AssetId: IsType<<Self as pallet_assets::Config>::AssetId>
 			+ Parameter
 			+ From<u32>
 			+ Ord
@@ -698,7 +696,7 @@ pub mod pallet {
 					.ok_or(Error::<T>::InvalidIndex)?;
 				let user_lookup = <T::Lookup as StaticLookup>::unlookup(Self::account_id());
 				let asset_id: AssetId<T> = 1.into();
-				pallet_assets::Pallet::<T, Instance1>::transfer(
+				pallet_assets::Pallet::<T>::transfer(
 					origin.clone(),
 					asset_id.into().into(),
 					user_lookup,
@@ -898,7 +896,7 @@ pub mod pallet {
 			let origin: OriginFor<T> = RawOrigin::Signed(Self::account_id()).into();
 			let asset_id: AssetId<T> = 1.into();
 			let user_lookup = <T::Lookup as StaticLookup>::unlookup(nft_holder.clone());
-			pallet_assets::Pallet::<T, Instance1>::transfer(
+			pallet_assets::Pallet::<T>::transfer(
 				origin,
 				asset_id.into().into(),
 				user_lookup,
@@ -1060,7 +1058,7 @@ pub mod pallet {
 						TryInto::<u64>::try_into(project.project_bonding_balance)
 							.map_err(|_| Error::<T>::ConversionError)?,
 					)? {
-				pallet_assets::Pallet::<T, Instance1>::transfer(
+				pallet_assets::Pallet::<T>::transfer(
 					origin.clone(),
 					asset_id.into().into(),
 					user_lookup.clone(),
@@ -1089,7 +1087,7 @@ pub mod pallet {
 					)?);
 				let transfer_native_amount =
 					funds_for_this_round.saturating_sub(transfer_xusd_amount);
-				pallet_assets::Pallet::<T, Instance1>::transfer(
+				pallet_assets::Pallet::<T>::transfer(
 					origin.clone(),
 					asset_id.into().into(),
 					user_lookup.clone(),
