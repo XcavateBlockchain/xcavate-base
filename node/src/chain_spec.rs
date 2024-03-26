@@ -79,7 +79,7 @@ pub fn development_config() -> ChainSpec {
         Extensions {
             relay_chain: "rococo-local".into(),
             // You MUST set this to the correct network!
-            para_id: 1000,
+            para_id: 4394,
         },
     )
     .with_name("Development")
@@ -118,7 +118,7 @@ pub fn local_testnet_config() -> ChainSpec {
         Extensions {
             relay_chain: "rococo-local".into(),
             // You MUST set this to the correct network!
-            para_id: 1000,
+            para_id: 4394,
         },
     )
     .with_name("Local Testnet")
