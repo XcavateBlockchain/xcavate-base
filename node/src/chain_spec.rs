@@ -1,7 +1,6 @@
 use cumulus_primitives_core::ParaId;
 use parachain_template_runtime::{
-    constants::currency::DOLLARS, constants::currency::EXISTENTIAL_DEPOSIT, 
-    AccountId, AuraId, Signature, Balance,
+    constants::currency::EXISTENTIAL_DEPOSIT, AccountId, AuraId, Signature,
 };
 use sc_chain_spec::{ChainSpecExtension, ChainSpecGroup};
 use sc_service::ChainType;
@@ -77,9 +76,9 @@ pub fn development_config() -> ChainSpec {
         parachain_template_runtime::WASM_BINARY
             .expect("WASM binary was not built, please build it!"),
         Extensions {
-            relay_chain: "rococo-local".into(),
+            relay_chain: "paseo-local".into(),
             // You MUST set this to the correct network!
-            para_id: 4394,
+            para_id: 4003,
         },
     )
     .with_name("Development")
@@ -97,7 +96,20 @@ pub fn development_config() -> ChainSpec {
                 get_collator_keys_from_seed("Bob"),
             ),
         ],
-        get_endowed_accounts_with_balance(),
+        vec![
+            get_account_id_from_seed::<sr25519::Public>("Alice"),
+            get_account_id_from_seed::<sr25519::Public>("Bob"),
+            get_account_id_from_seed::<sr25519::Public>("Charlie"),
+            get_account_id_from_seed::<sr25519::Public>("Dave"),
+            get_account_id_from_seed::<sr25519::Public>("Eve"),
+            get_account_id_from_seed::<sr25519::Public>("Ferdie"),
+            get_account_id_from_seed::<sr25519::Public>("Alice//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Bob//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Charlie//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Dave//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Eve//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Ferdie//stash"),
+        ],
         get_account_id_from_seed::<sr25519::Public>("Alice"),
         1000.into(),
     ))
@@ -116,9 +128,9 @@ pub fn local_testnet_config() -> ChainSpec {
         parachain_template_runtime::WASM_BINARY
             .expect("WASM binary was not built, please build it!"),
         Extensions {
-            relay_chain: "rococo-local".into(),
+            relay_chain: "paseo-local".into(),
             // You MUST set this to the correct network!
-            para_id: 4394,
+            para_id: 4003,
         },
     )
     .with_name("Local Testnet")
@@ -136,7 +148,20 @@ pub fn local_testnet_config() -> ChainSpec {
                 get_collator_keys_from_seed("Bob"),
             ),
         ],
-        get_endowed_accounts_with_balance(),
+        vec![
+            get_account_id_from_seed::<sr25519::Public>("Alice"),
+            get_account_id_from_seed::<sr25519::Public>("Bob"),
+            get_account_id_from_seed::<sr25519::Public>("Charlie"),
+            get_account_id_from_seed::<sr25519::Public>("Dave"),
+            get_account_id_from_seed::<sr25519::Public>("Eve"),
+            get_account_id_from_seed::<sr25519::Public>("Ferdie"),
+            get_account_id_from_seed::<sr25519::Public>("Alice//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Bob//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Charlie//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Dave//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Eve//stash"),
+            get_account_id_from_seed::<sr25519::Public>("Ferdie//stash"),
+        ],
         get_account_id_from_seed::<sr25519::Public>("Alice"),
         1000.into(),
     ))
@@ -147,19 +172,14 @@ pub fn local_testnet_config() -> ChainSpec {
 
 fn testnet_genesis(
     invulnerables: Vec<(AccountId, AuraId)>,
-    endowed_accounts: Vec<(AccountId, u128)>,
+    endowed_accounts: Vec<AccountId>,
     root: AccountId,
     id: ParaId,
 ) -> serde_json::Value {
     serde_json::json!({
         "balances": {
-            "balances": endowed_accounts.iter().cloned().map(|k| (k.0, 1u64 << 60)).collect::<Vec<_>>(),
+            "balances": endowed_accounts.iter().cloned().map(|k| (k, 1u64 << 60)).collect::<Vec<_>>(),
         },
-        "assets" : {
-			"assets": vec![(1, root.clone(), true, 1)], // Genesis assets: id, owner, is_sufficient, min_balance
-			"metadata": vec![(1, "XUSD".as_bytes(), "XUSD".as_bytes(), 0)], // Genesis metadata: id, name, symbol, decimals
-			"accounts": endowed_accounts.iter().cloned().map(|x| (1, x.0.clone(), 1_000_000)).collect::<Vec<_>>(),
-		}, 
         "parachainInfo": {
             "parachainId": id,
         },
@@ -185,39 +205,4 @@ fn testnet_genesis(
         },
         "sudo": { "key": Some(root) }
     })
-}
-
-pub fn get_endowed_accounts_with_balance() -> Vec<(AccountId, u128)> {
-	let accounts: Vec<AccountId> = vec![
-		get_account_id_from_seed::<sr25519::Public>("Alice"),
-		get_account_id_from_seed::<sr25519::Public>("Bob"),
-		get_account_id_from_seed::<sr25519::Public>("Charlie"),
-		get_account_id_from_seed::<sr25519::Public>("Dave"),
-		get_account_id_from_seed::<sr25519::Public>("Eve"),
-		get_account_id_from_seed::<sr25519::Public>("Ferdie"),
-		get_account_id_from_seed::<sr25519::Public>("Alice//stash"),
-		get_account_id_from_seed::<sr25519::Public>("Bob//stash"),
-		get_account_id_from_seed::<sr25519::Public>("Charlie//stash"),
-		get_account_id_from_seed::<sr25519::Public>("Dave//stash"),
-	];
-
-	const ENDOWMENT: Balance = 10_000_000 * DOLLARS;
-	let accounts_with_balance: Vec<(AccountId, u128)> =
-		accounts.iter().cloned().map(|k| (k, ENDOWMENT)).collect();
-	let json_data = &include_bytes!("../../seed/balances.json")[..];
-	let additional_accounts_with_balance: Vec<(AccountId, u128)> =
-		serde_json::from_slice(json_data).unwrap_or_default();
-
-	let mut accounts = additional_accounts_with_balance.clone();
-
-	accounts_with_balance.iter().for_each(|tup1| {
-		for tup2 in additional_accounts_with_balance.iter() {
-			if tup1.0 == tup2.0 {
-				return;
-			}
-		}
-		accounts.push(tup1.to_owned());
-	});
-
-	accounts
 }

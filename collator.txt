@@ -1,0 +1,31 @@
+./target/release/parachain-template-node \
+-lbasic-authorship=trace \
+--alice \
+--collator \
+--force-authoring \
+--chain raw-parachain-chainspec.json \
+--base-path ./tmp/parachain/alice \
+--port 40333 \
+--rpc-port 8844 \
+-- \
+--execution wasm \
+--chain paseo.json \
+--port 30343 \
+--rpc-port 9977
+
+
+
+./target/release/parachain-template-node \
+-lbasic-authorship=trace \
+--bob \
+--collator \
+--force-authoring \
+--chain raw-parachain-chainspec.json \
+--base-path ./tmp/parachain/bob \
+--port 40334 \
+--rpc-port 8845 \
+-- \
+--execution wasm \
+--chain paseo.json \
+--port 30344 \
+--rpc-port 9978 \

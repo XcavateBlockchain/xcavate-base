@@ -6,6 +6,10 @@ pub enum Subcommand {
     /// Build a chain specification.
     BuildSpec(sc_cli::BuildSpecCmd),
 
+    /// Key management cli utilities
+    #[command(subcommand)]
+    Key(sc_cli::KeySubcommand),
+
     /// Validate blocks.
     CheckBlock(sc_cli::CheckBlockCmd),
 

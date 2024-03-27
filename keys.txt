@@ -1,0 +1,35 @@
+ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key generate --scheme Sr25519 --password-interactive
+Key password: 
+Secret phrase:       sweet negative wage admit tornado rule slim system lift hen kidney then
+  Network ID:        substrate
+  Secret seed:       0x450554cad2edc25d322a485cca8b387553ad59f148dddf2cf0da6164a23aa562
+  Public key (hex):  0xd2ee172eb3afc7657501010bc28530a0ffeef46d0392d460e59908123e82ed0b
+  Account ID:        0xd2ee172eb3afc7657501010bc28530a0ffeef46d0392d460e59908123e82ed0b
+  Public key (SS58): 5GqGe7Hj16W2BqiVZGubyxEWcq1aKdgySpabmn3CwEk7ZR4Y
+  SS58 Address:      5GqGe7Hj16W2BqiVZGubyxEWcq1aKdgySpabmn3CwEk7ZR4Y
+ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key inspect --password-interactive --scheme Ed25519 "sweet negative wage admit tornado rule slim system lift hen kidney then"
+Key password: 
+Secret phrase:       sweet negative wage admit tornado rule slim system lift hen kidney then
+  Network ID:        substrate
+  Secret seed:       0x450554cad2edc25d322a485cca8b387553ad59f148dddf2cf0da6164a23aa562
+  Public key (hex):  0xed3127f41dff32fdd1406e870a986d752f3354a5a19ee6e5df8fdddbcbe53061
+  Account ID:        0xed3127f41dff32fdd1406e870a986d752f3354a5a19ee6e5df8fdddbcbe53061
+  Public key (SS58): 5HRhoqAZt687pp9qez88nQGiyg5LFQijh6RgQNQSARXErY49
+  SS58 Address:      5HRhoqAZt687pp9qez88nQGiyg5LFQijh6RgQNQSARXErY49
+ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % 
+
+
+ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key insert --base-path ./tmp/parachain \
+  --chain raw-parachain-chainspec.json \
+  --scheme Sr25519 \
+  --suri "sweet negative wage admit tornado rule slim system lift hen kidney then" \
+  --password-interactive \
+  --key-type aura
+
+ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key insert \
+  --base-path ./tmp/parachain \
+  --chain raw-parachain-chainspec.json \
+  --scheme Ed25519 \
+  --suri "sweet negative wage admit tornado rule slim system lift hen kidney then" \
+  --password-interactive \
+  --key-type gran
