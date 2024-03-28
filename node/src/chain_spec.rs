@@ -76,7 +76,7 @@ pub fn development_config() -> ChainSpec {
         parachain_template_runtime::WASM_BINARY
             .expect("WASM binary was not built, please build it!"),
         Extensions {
-            relay_chain: "paseo-local".into(),
+            relay_chain: "paseo".into(),
             // You MUST set this to the correct network!
             para_id: 4003,
         },
@@ -128,7 +128,7 @@ pub fn local_testnet_config() -> ChainSpec {
         parachain_template_runtime::WASM_BINARY
             .expect("WASM binary was not built, please build it!"),
         Extensions {
-            relay_chain: "paseo-local".into(),
+            relay_chain: "paseo".into(),
             // You MUST set this to the correct network!
             para_id: 4003,
         },

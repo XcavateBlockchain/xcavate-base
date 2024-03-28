@@ -1,28 +1,29 @@
-ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key generate --scheme Sr25519 --password-interactive
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key generate --scheme Sr25519 --password-interactive
 Key password: 
-Secret phrase:       sweet negative wage admit tornado rule slim system lift hen kidney then
+Secret phrase:       slide avocado life math lonely witness road actor margin cry habit note
   Network ID:        substrate
-  Secret seed:       0x450554cad2edc25d322a485cca8b387553ad59f148dddf2cf0da6164a23aa562
-  Public key (hex):  0xd2ee172eb3afc7657501010bc28530a0ffeef46d0392d460e59908123e82ed0b
-  Account ID:        0xd2ee172eb3afc7657501010bc28530a0ffeef46d0392d460e59908123e82ed0b
-  Public key (SS58): 5GqGe7Hj16W2BqiVZGubyxEWcq1aKdgySpabmn3CwEk7ZR4Y
-  SS58 Address:      5GqGe7Hj16W2BqiVZGubyxEWcq1aKdgySpabmn3CwEk7ZR4Y
-ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key inspect --password-interactive --scheme Ed25519 "sweet negative wage admit tornado rule slim system lift hen kidney then"
+  Secret seed:       0xd8fb0a5ab8d8d1b123ed5b114ad2bb362b6e6d24627e4a9a82213f71bb8ae69c
+  Public key (hex):  0xb456de0f9cc4cdbc4e41e89cb1f28df44db13b1ce543dd21fe32027927dfb234
+  Account ID:        0xb456de0f9cc4cdbc4e41e89cb1f28df44db13b1ce543dd21fe32027927dfb234
+  Public key (SS58): 5G9AHGxcQxCjqszu6mCSpC5b5fGZ4oBzdyGbQuNNYbQTaHR2
+  SS58 Address:      5G9AHGxcQxCjqszu6mCSpC5b5fGZ4oBzdyGbQuNNYbQTaHR2
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % 
+
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key inspect --password-interactive --scheme Ed25519 "slide avocado life math lonely witness road actor margin cry habit note"
 Key password: 
-Secret phrase:       sweet negative wage admit tornado rule slim system lift hen kidney then
+Secret phrase:       slide avocado life math lonely witness road actor margin cry habit note
   Network ID:        substrate
-  Secret seed:       0x450554cad2edc25d322a485cca8b387553ad59f148dddf2cf0da6164a23aa562
-  Public key (hex):  0xed3127f41dff32fdd1406e870a986d752f3354a5a19ee6e5df8fdddbcbe53061
-  Account ID:        0xed3127f41dff32fdd1406e870a986d752f3354a5a19ee6e5df8fdddbcbe53061
-  Public key (SS58): 5HRhoqAZt687pp9qez88nQGiyg5LFQijh6RgQNQSARXErY49
-  SS58 Address:      5HRhoqAZt687pp9qez88nQGiyg5LFQijh6RgQNQSARXErY49
-ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % 
+  Secret seed:       0xd8fb0a5ab8d8d1b123ed5b114ad2bb362b6e6d24627e4a9a82213f71bb8ae69c
+  Public key (hex):  0xfbc06400f2835fd287aae4379bb1e1dc8a55514d476fb1d2f52febe1361b99f9
+  Account ID:        0xfbc06400f2835fd287aae4379bb1e1dc8a55514d476fb1d2f52febe1361b99f9
+  Public key (SS58): 5Hko2b3hjCUoALSKh4mDLj82WHksgMhLoqauJ6FuVu4Cnite
+  SS58 Address:      5Hko2b3hjCUoALSKh4mDLj82WHksgMhLoqauJ6FuVu4Cnite
 
 
 ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key insert --base-path ./tmp/parachain \
   --chain raw-parachain-chainspec.json \
   --scheme Sr25519 \
-  --suri "sweet negative wage admit tornado rule slim system lift hen kidney then" \
+  --suri "slide avocado life math lonely witness road actor margin cry habit note" \
   --password-interactive \
   --key-type aura
 
@@ -30,6 +31,39 @@ ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parac
   --base-path ./tmp/parachain \
   --chain raw-parachain-chainspec.json \
   --scheme Ed25519 \
-  --suri "sweet negative wage admit tornado rule slim system lift hen kidney then" \
+  --suri "slide avocado life math lonely witness road actor margin cry habit note" \
   --password-interactive \
   --key-type gran
+
+--bob--
+
+
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key generate --scheme Sr25519 --password-interactive
+Key password: 
+Secret phrase:       client bus flip curious half glory hat review fire jungle canyon loud
+  Network ID:        substrate
+  Secret seed:       0x21470094ab93cc19c2ba07808fc0e54849ae7b02541c201daca308e09b7a1ed8
+  Public key (hex):  0xac6f3cacb7539c18cc183fc4548c0c83611cda6cdb4eca7a3e0016928dd89303
+  Account ID:        0xac6f3cacb7539c18cc183fc4548c0c83611cda6cdb4eca7a3e0016928dd89303
+  Public key (SS58): 5Fxo8wDjGLwRWhDdz3YKT54bthkK8aPpxxp12P2KHKs5TgDM
+  SS58 Address:      5Fxo8wDjGLwRWhDdz3YKT54bthkK8aPpxxp12P2KHKs5TgDM
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key inspect --password-interactive --scheme Ed25519 " client bus flip curious half glory hat review fire jungle canyon loud"
+Key password: 
+Secret phrase:        client bus flip curious half glory hat review fire jungle canyon loud
+  Network ID:        substrate
+  Secret seed:       0x21470094ab93cc19c2ba07808fc0e54849ae7b02541c201daca308e09b7a1ed8
+  Public key (hex):  0x9efa3b63ba72d51009e4473110dbe2cac2f1ec67caf6b88cd3003cf7feee774e
+  Account ID:        0x9efa3b63ba72d51009e4473110dbe2cac2f1ec67caf6b88cd3003cf7feee774e
+  Public key (SS58): 5Ff9kt3xiWr1znuQ3wdWcw8uGb1t2yPSxEYXeJ1sNoNXhnmP
+  SS58 Address:      5Ff9kt3xiWr1znuQ3wdWcw8uGb1t2yPSxEYXeJ1sNoNXhnmP
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % 
+
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key insert --base-path ./tmp/parachain/bob \
+  --chain raw-parachain-chainspec.json \
+  --scheme Sr25519 \
+  --suri "client bus flip curious half glory hat review fire jungle canyon loud" \
+  --password-interactive \
+  --key-type aura
+
+
+/Users/ganesholi/Library/Application Support

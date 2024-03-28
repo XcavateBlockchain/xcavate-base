@@ -1,0 +1,396 @@
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node \
+-lbasic-authorship=trace \
+--alice \
+--collator \
+--force-authoring \
+--chain raw-parachain-chainspec.json \
+--base-path ./tmp/parachain/alice \
+--port 40333 \
+--rpc-port 8844 \
+-- \
+--execution wasm \
+--chain paseo.json \
+--port 30343 \
+--rpc-port 9977 \
+--blocks-pruning=256
+2024-03-28 14:00:43.431  INFO main sc_cli::runner: Parachain Collator Template    
+2024-03-28 14:00:43.431  INFO main sc_cli::runner: ✌️  version 0.1.2-86b2a87fc0c    
+2024-03-28 14:00:43.431  INFO main sc_cli::runner: ❤️  by OpenZeppelin, 2020-2024    
+2024-03-28 14:00:43.431  INFO main sc_cli::runner: 📋 Chain specification: Live Xcavate Testnet    
+2024-03-28 14:00:43.431  INFO main sc_cli::runner: 🏷  Node name: Alice    
+2024-03-28 14:00:43.431  INFO main sc_cli::runner: 👤 Role: AUTHORITY    
+2024-03-28 14:00:43.432  INFO main sc_cli::runner: 💾 Database: RocksDb at ./tmp/parachain/alice/chains/live_xcavate_testnet/db/full    
+CLI parameter `--execution` has no effect anymore and will be removed in the future!
+2024-03-28 14:00:44.687  INFO main parachain_template_node::command: Parachain Account: 5Ec4AhPKvnFY6pptWxiSRJXVtNgxy6ymX5caA6LjuGtCbUxo    
+2024-03-28 14:00:44.687  INFO main parachain_template_node::command: Is collating: yes    
+2024-03-28 14:00:47.940  INFO main sc_service::client::client: [Parachain] 🔨 Initializing Genesis block/state (state: 0x4fc2…4db2, header-hash: 0xf953…4cee)    
+2024-03-28 14:00:56.283  INFO main sub-libp2p: [Relaychain] 🏷  Local node identity is: 12D3KooWSkSupTwdvrFi5gjFTXxrb8DR1gwqsmS6J7buTEt6DLBq    
+2024-03-28 14:00:56.300  INFO main sc_sysinfo: [Relaychain] 💻 Operating system: macos    
+2024-03-28 14:00:56.300  INFO main sc_sysinfo: [Relaychain] 💻 CPU architecture: aarch64    
+2024-03-28 14:00:56.300  INFO main sc_service::builder: [Relaychain] 📦 Highest known block at #535269    
+2024-03-28 14:00:56.300  INFO tokio-runtime-worker substrate_prometheus_endpoint: [Relaychain] 〽️ Prometheus exporter started at 127.0.0.1:9616    
+2024-03-28 14:00:56.306  INFO                 main sc_rpc_server: [Relaychain] Running JSON-RPC server: addr=127.0.0.1:9977, allowed origins=["http://localhost:*", "http://127.0.0.1:*", "https://localhost:*", "https://127.0.0.1:*", "https://polkadot.js.org"]    
+2024-03-28 14:00:56.306  INFO                 main sc_sysinfo: [Relaychain] 🏁 CPU score: 608.25 MiBs    
+2024-03-28 14:00:56.306  INFO                 main sc_sysinfo: [Relaychain] 🏁 Memory score: 27.19 GiBs    
+2024-03-28 14:00:56.306  INFO                 main sc_sysinfo: [Relaychain] 🏁 Disk score (seq. writes): 1.85 GiBs    
+2024-03-28 14:00:56.306  INFO                 main sc_sysinfo: [Relaychain] 🏁 Disk score (rand. writes): 335.04 MiBs    
+2024-03-28 14:00:56.326  INFO                 main sub-libp2p: [Parachain] 🏷  Local node identity is: 12D3KooWAPbS7QP8AHPpcy6ar3j4tM8AxJHZydNWn6WVDmSBgwL2    
+2024-03-28 14:00:56.336  INFO                 main sc_sysinfo: [Parachain] 💻 Operating system: macos    
+2024-03-28 14:00:56.336  INFO                 main sc_sysinfo: [Parachain] 💻 CPU architecture: aarch64    
+2024-03-28 14:00:56.336  INFO                 main sc_service::builder: [Parachain] 📦 Highest known block at #0    
+2024-03-28 14:00:56.337  INFO tokio-runtime-worker substrate_prometheus_endpoint: [Parachain] 〽️ Prometheus exporter started at 127.0.0.1:9615    
+2024-03-28 14:00:56.339  INFO                 main sc_rpc_server: [Parachain] Running JSON-RPC server: addr=127.0.0.1:8844, allowed origins=["http://localhost:*", "http://127.0.0.1:*", "https://localhost:*", "https://127.0.0.1:*", "https://polkadot.js.org"]    
+2024-03-28 14:00:56.341  INFO                 main sc_sysinfo: [Parachain] 🏁 CPU score: 608.25 MiBs    
+2024-03-28 14:00:56.341  INFO                 main sc_sysinfo: [Parachain] 🏁 Memory score: 27.19 GiBs    
+2024-03-28 14:00:56.341  INFO                 main sc_sysinfo: [Parachain] 🏁 Disk score (seq. writes): 1.85 GiBs    
+2024-03-28 14:00:56.341  INFO                 main sc_sysinfo: [Parachain] 🏁 Disk score (rand. writes): 335.04 MiBs    
+2024-03-28 14:00:56.341  WARN                 main parachain_template_node::service: [Parachain] ⚠️  The hardware does not meet the minimal requirements Failed checks: BLAKE2-256(expected: 783.27 MiBs, found: 608.25 MiBs), Rnd Write(expected: 420.00 MiBs, found: 335.04 MiBs),  for role 'Authority'.    
+2024-03-28 14:00:56.345  INFO tokio-runtime-worker libp2p_mdns::behaviour: [Relaychain] discovered: 12D3KooWAPbS7QP8AHPpcy6ar3j4tM8AxJHZydNWn6WVDmSBgwL2 /ip4/192.168.10.96/tcp/40333    
+2024-03-28 14:00:56.345  INFO tokio-runtime-worker libp2p_mdns::behaviour: [Parachain] discovered: 12D3KooWSkSupTwdvrFi5gjFTXxrb8DR1gwqsmS6J7buTEt6DLBq /ip4/192.168.10.96/tcp/30343/ws    
+2024-03-28 14:00:57.435  INFO tokio-runtime-worker sub-libp2p: [Relaychain] 🔍 Discovered new external address for our node: /ip4/27.34.65.104/tcp/30343/ws/p2p/12D3KooWSkSupTwdvrFi5gjFTXxrb8DR1gwqsmS6J7buTEt6DLBq    
+2024-03-28 14:01:01.082  INFO tokio-runtime-worker sub-libp2p: [Relaychain] 🔍 Discovered new external address for our node: /ip6/2400:1a00:b030:1a57:883:7ff6:b0cd:7324/tcp/30343/ws/p2p/12D3KooWSkSupTwdvrFi5gjFTXxrb8DR1gwqsmS6J7buTEt6DLBq    
+2024-03-28 14:01:01.308  INFO tokio-runtime-worker substrate: [Relaychain] ⚙️  Syncing, target=#535287 (5 peers), best: #535269 (0xa40c…51fa), finalized #535266 (0x93a0…5ab1), ⬇ 94.9kiB/s ⬆ 21.0kiB/s    
+2024-03-28 14:01:01.344  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0xf953…4cee), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:06.310  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535287 (0x3efc…2023), finalized #535284 (0xc154…a816), ⬇ 78.3kiB/s ⬆ 10.8kiB/s    
+2024-03-28 14:01:06.345  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0xf953…4cee), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:06.783  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535288 (0xd821…8fd5)    
+2024-03-28 14:01:11.311  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535288 (0xd821…8fd5), finalized #535286 (0x823e…b952), ⬇ 54.5kiB/s ⬆ 33.4kiB/s    
+2024-03-28 14:01:11.347  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0xf953…4cee), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:11.615  INFO tokio-runtime-worker sub-libp2p: [Relaychain] 🔍 Discovered new external address for our node: /ip6/2400:1a00:b030:1a57:6014:1960:2ed3:1922/tcp/30343/ws/p2p/12D3KooWSkSupTwdvrFi5gjFTXxrb8DR1gwqsmS6J7buTEt6DLBq    
+2024-03-28 14:01:12.605  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535289 (0x0299…446f)    
+2024-03-28 14:01:12.609  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:01:12.624 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:01:12.624 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:01:12.624 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:01:12.627  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (17 ms) [hash: 0x88f056a6d06ce971694f241ebdabc6d684abe4474b4677d12ccdefcf9c0fffde; parent_hash: 0xf953…4cee; extrinsics (2): [0x20b4…75d5, 0x851a…0eed]    
+2024-03-28 14:01:12.630  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x3e78dfd51903151b9c796a33e34cd2659d1c6a56dae7fcd4a358d9adf3d39838, previously 0x88f056a6d06ce971694f241ebdabc6d684abe4474b4677d12ccdefcf9c0fffde.
+2024-03-28 14:01:12.631  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x3e78…9838)    
+2024-03-28 14:01:12.633  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:01:12.633  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:01:16.313  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535289 (0x0299…446f), finalized #535286 (0x823e…b952), ⬇ 78.5kiB/s ⬆ 37.7kiB/s    
+2024-03-28 14:01:16.348  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:16.610  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKAaBLGjMbG5WmndYHMTYB2aeuYcGVvQnpHqCZeDGVuY8 from SetId(3).    
+2024-03-28 14:01:16.610  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCrM4WksQ66XCbFau6jt7E7orEcxd8DQM5kieQmVW2vzD from SetId(3).    
+2024-03-28 14:01:16.610  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWGSKURGSat42owFeVZi36teFd9vwpeLXNQLCebErdQsMH from SetId(3).    
+2024-03-28 14:01:16.610  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdmi99KRwPsLtA6Szc7DtwynkyiHjpwZZqVTV6o36f8k from SetId(3).    
+2024-03-28 14:01:16.610  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCQnDeELzhGBrc6zmsuTT6wkaquqCKyVc62GLCQptDph4 from SetId(3).    
+2024-03-28 14:01:16.610  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWAoux46wBtj987pnj6cAJMRMQkPAb62TPVC1Tfj4mDnF5 from SetId(3).    
+2024-03-28 14:01:16.610  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWGZwxpW6th4MjkRxAT1F5sAHSHUfuCvKmtzpT2xHNdULj from SetId(3).    
+2024-03-28 14:01:18.608  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535290 (0x56ce…075c)    
+2024-03-28 14:01:18.611  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:01:18.613 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:01:18.613 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:01:18.613 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:01:18.614  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (2 ms) [hash: 0x200871464cb3a64a57edb3b1237624cbd14138edc6660b05b3b546f83ff2893f; parent_hash: 0xf953…4cee; extrinsics (2): [0x09ff…2b3b, 0x7c67…7786]    
+2024-03-28 14:01:18.617  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x282b7f15ef1a66c741c59c80cf8155c20394b1cf2bb3740c12d76816dda9da96, previously 0x200871464cb3a64a57edb3b1237624cbd14138edc6660b05b3b546f83ff2893f.
+2024-03-28 14:01:18.618  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x282b…da96)    
+2024-03-28 14:01:18.618  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:01:18.618  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:01:21.314  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535290 (0x56ce…075c), finalized #535287 (0x3efc…2023), ⬇ 15.7kiB/s ⬆ 9.3kiB/s    
+2024-03-28 14:01:21.352  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:24.696  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535291 (0x459d…1d94)    
+2024-03-28 14:01:24.697  WARN tokio-runtime-worker parachain::collator-protocol: [Relaychain] Collation wasn't advertised to any validator. candidate_hash=0xb404c0f0f67d5ee8c3ca49b296ce11c64526e007599e65706635106c532e77fd pov_hash=0xa828b6104842c1d4d10d06fc05f3b52ee94813cb08fc7eeb02fcd088ccbe509e traceID=239285721742406777317066713373048967622
+2024-03-28 14:01:25.067  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535291 (0x4860…8d8f)    
+2024-03-28 14:01:26.316  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535291 (0x459d…1d94), finalized #535288 (0xd821…8fd5), ⬇ 44.1kiB/s ⬆ 32.4kiB/s    
+2024-03-28 14:01:26.354  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWGSKURGSat42owFeVZi36teFd9vwpeLXNQLCebErdQsMH from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKAaBLGjMbG5WmndYHMTYB2aeuYcGVvQnpHqCZeDGVuY8 from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCQnDeELzhGBrc6zmsuTT6wkaquqCKyVc62GLCQptDph4 from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdmi99KRwPsLtA6Szc7DtwynkyiHjpwZZqVTV6o36f8k from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWAoux46wBtj987pnj6cAJMRMQkPAb62TPVC1Tfj4mDnF5 from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCjZTGDVpRUk3UVJRENJnaBeTKmqHieTWjvLJ6wffYETm from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCH6iag326rbQoudrz7uu3XrZPZZo2caiQA732i12JnRa from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWGZwxpW6th4MjkRxAT1F5sAHSHUfuCvKmtzpT2xHNdULj from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCrM4WksQ66XCbFau6jt7E7orEcxd8DQM5kieQmVW2vzD from SetId(3).    
+2024-03-28 14:01:29.070  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWFLjtSmQBj6XtqPGMtKyNRAoZ1HK6iaVwhUTAncee8DZE from SetId(3).    
+2024-03-28 14:01:30.487  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535292 (0x15a2…057f)    
+2024-03-28 14:01:30.710  INFO tokio-runtime-worker sc_informant: [Relaychain] ♻️  Reorg on #535292,0x15a2…057f to #535292,0xc2b4…d04d, common ancestor #535291,0x459d…1d94    
+2024-03-28 14:01:30.710  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535292 (0xc2b4…d04d)    
+2024-03-28 14:01:31.318  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535292 (0xc2b4…d04d), finalized #535289 (0x0299…446f), ⬇ 83.5kiB/s ⬆ 19.7kiB/s    
+2024-03-28 14:01:31.355  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:36.320  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535292 (0xc2b4…d04d), finalized #535290 (0x56ce…075c), ⬇ 19.9kiB/s ⬆ 20.1kiB/s    
+2024-03-28 14:01:36.357  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:36.524  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535293 (0x8e21…4949)    
+2024-03-28 14:01:36.526  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:01:36.527 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:01:36.528 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:01:36.528 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:01:36.528  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0x6f13e8ed94a842897d8af7db8838641916ce240816821c79a73ad7cdafb3fef5; parent_hash: 0xf953…4cee; extrinsics (2): [0x979a…8c43, 0x582e…e1fe]    
+2024-03-28 14:01:36.531  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x43a9536ac69a752913b3899b6017fe6e4e841294166206b23f749de7ede1e6af, previously 0x6f13e8ed94a842897d8af7db8838641916ce240816821c79a73ad7cdafb3fef5.
+2024-03-28 14:01:36.532  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x43a9…e6af)    
+2024-03-28 14:01:36.532  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:01:36.532  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.4931640625kb
+2024-03-28 14:01:40.530  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKAaBLGjMbG5WmndYHMTYB2aeuYcGVvQnpHqCZeDGVuY8 from SetId(3).    
+2024-03-28 14:01:40.530  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWGSKURGSat42owFeVZi36teFd9vwpeLXNQLCebErdQsMH from SetId(3).    
+2024-03-28 14:01:40.530  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdmi99KRwPsLtA6Szc7DtwynkyiHjpwZZqVTV6o36f8k from SetId(3).    
+2024-03-28 14:01:40.530  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCQnDeELzhGBrc6zmsuTT6wkaquqCKyVc62GLCQptDph4 from SetId(3).    
+2024-03-28 14:01:40.530  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWGZwxpW6th4MjkRxAT1F5sAHSHUfuCvKmtzpT2xHNdULj from SetId(3).    
+2024-03-28 14:01:40.530  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWAoux46wBtj987pnj6cAJMRMQkPAb62TPVC1Tfj4mDnF5 from SetId(3).    
+2024-03-28 14:01:40.530  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCrM4WksQ66XCbFau6jt7E7orEcxd8DQM5kieQmVW2vzD from SetId(3).    
+2024-03-28 14:01:41.325  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535293 (0x8e21…4949), finalized #535290 (0x56ce…075c), ⬇ 25.1kiB/s ⬆ 26.9kiB/s    
+2024-03-28 14:01:41.358  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:42.508  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535294 (0xef2b…1d5f)    
+2024-03-28 14:01:42.510  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:01:42.511 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:01:42.511 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:01:42.511 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:01:42.512  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0xc5c8ccba6f48b940c9667c713edbd0a334a87196410d91d06a4dd5bc7385f897; parent_hash: 0xf953…4cee; extrinsics (2): [0xb20e…deae, 0x4541…37f8]    
+2024-03-28 14:01:42.514  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0xc265879fbb93459cc0d24f4f054d0f44e9ca9d80d173b37de9a941211ee52c3e, previously 0xc5c8ccba6f48b940c9667c713edbd0a334a87196410d91d06a4dd5bc7385f897.
+2024-03-28 14:01:42.515  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0xc265…2c3e)    
+2024-03-28 14:01:42.515  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:01:42.515  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.4931640625kb
+2024-03-28 14:01:46.326  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535294 (0xef2b…1d5f), finalized #535292 (0xc2b4…d04d), ⬇ 17.3kiB/s ⬆ 16.9kiB/s    
+2024-03-28 14:01:46.361  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:48.700  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535295 (0x3127…5d44)    
+2024-03-28 14:01:48.700  WARN tokio-runtime-worker parachain::collator-protocol: [Relaychain] Collation wasn't advertised to any validator. candidate_hash=0x08cf7b73357906dee73365a89d71dcd1ba786b4cf09296c1c10c10908870a7d6 pov_hash=0xae012cfd23cdba295bee0e6867568a1a41cc2d9cc113a9283351da3825242168 traceID=11711133280164992588937749567242362065
+2024-03-28 14:01:49.097  INFO tokio-runtime-worker sc_informant: [Relaychain] ♻️  Reorg on #535295,0x3127…5d44 to #535295,0x5790…6973, common ancestor #535294,0xef2b…1d5f    
+2024-03-28 14:01:49.097  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535295 (0x5790…6973)    
+2024-03-28 14:01:51.327  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535295 (0x5790…6973), finalized #535292 (0xc2b4…d04d), ⬇ 50.2kiB/s ⬆ 28.6kiB/s    
+2024-03-28 14:01:51.362  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:01:53.099  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCH6iag326rbQoudrz7uu3XrZPZZo2caiQA732i12JnRa from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdmi99KRwPsLtA6Szc7DtwynkyiHjpwZZqVTV6o36f8k from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWFLjtSmQBj6XtqPGMtKyNRAoZ1HK6iaVwhUTAncee8DZE from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWAoux46wBtj987pnj6cAJMRMQkPAb62TPVC1Tfj4mDnF5 from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCjZTGDVpRUk3UVJRENJnaBeTKmqHieTWjvLJ6wffYETm from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKAaBLGjMbG5WmndYHMTYB2aeuYcGVvQnpHqCZeDGVuY8 from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWGSKURGSat42owFeVZi36teFd9vwpeLXNQLCebErdQsMH from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCQnDeELzhGBrc6zmsuTT6wkaquqCKyVc62GLCQptDph4 from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWGZwxpW6th4MjkRxAT1F5sAHSHUfuCvKmtzpT2xHNdULj from SetId(3).    
+2024-03-28 14:01:53.100  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWCrM4WksQ66XCbFau6jt7E7orEcxd8DQM5kieQmVW2vzD from SetId(3).    
+2024-03-28 14:01:54.499  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535296 (0x4b9b…6b34)    
+2024-03-28 14:01:54.859  INFO tokio-runtime-worker sc_informant: [Relaychain] ♻️  Reorg on #535296,0x4b9b…6b34 to #535296,0x1a49…9640, common ancestor #535295,0x5790…6973    
+2024-03-28 14:01:54.859  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535296 (0x1a49…9640)    
+2024-03-28 14:01:56.329  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535296 (0x1a49…9640), finalized #535293 (0x8e21…4949), ⬇ 37.2kiB/s ⬆ 22.7kiB/s    
+2024-03-28 14:01:56.362  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:00.917  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535297 (0x8e24…1355)    
+2024-03-28 14:02:00.919  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:02:00.921 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:02:00.921 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:02:00.921 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:02:00.922  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (2 ms) [hash: 0xba02801f45b993ea2d081939e07f260f10ca1d1b8b677ea447de414a081d9b29; parent_hash: 0xf953…4cee; extrinsics (2): [0x44ad…1d53, 0x5841…46a3]    
+2024-03-28 14:02:00.924  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x8ede1b56b2afa8aaaaed39021e0a280fef671dbeeb771105733093599dc0e470, previously 0xba02801f45b993ea2d081939e07f260f10ca1d1b8b677ea447de414a081d9b29.
+2024-03-28 14:02:00.925  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x8ede…e470)    
+2024-03-28 14:02:00.925  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:02:00.926  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:02:01.330  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535297 (0x8e24…1355), finalized #535294 (0xef2b…1d5f), ⬇ 98.2kiB/s ⬆ 41.6kiB/s    
+2024-03-28 14:02:01.367  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:04.918  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHdkyiwj8ijNAHNzNVaJq9GXsmdWJtg7pkDtdymDCe2SN from SetId(3).    
+2024-03-28 14:02:04.918  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHwHj6epjWX4NvBsSficVvHW1wxrvSomG3tnq7gxsLvSA from SetId(3).    
+2024-03-28 14:02:04.918  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWLZPy8QcBPMEFGBEWTBxbWRgdopHu4CjJS2ejofdmiPjb from SetId(3).    
+2024-03-28 14:02:04.918  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWC1Zuv6gHwiRSJC5x6Ca7Dd5NEfCQk9pk7jy8iXPxsiwv from SetId(3).    
+2024-03-28 14:02:04.918  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdJytB4w8ZQjny81EgEmhPe97B4FPkkxW1pkAZtezgHQ from SetId(3).    
+2024-03-28 14:02:04.918  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQhMHo2tPKZ7oNZakp8D6mZP9N2371H3nHti2nuAgHqBe from SetId(3).    
+2024-03-28 14:02:04.918  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWDNh3a8CkZbtNonPiEpjjnrew9jASbMWq5EJ3LUqkF1DQ from SetId(3).    
+2024-03-28 14:02:04.918  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKsDVDx5qSjBj7yqUqQBkuXuVQ6APagoqqDFzd4o98iPx from SetId(3).    
+2024-03-28 14:02:06.334  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535297 (0x8e24…1355), finalized #535295 (0x5790…6973), ⬇ 18.4kiB/s ⬆ 27.6kiB/s    
+2024-03-28 14:02:06.369  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:06.502  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535298 (0x0d59…237a)    
+2024-03-28 14:02:06.505  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:02:06.507 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:02:06.507 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:02:06.507 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:02:06.507  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (2 ms) [hash: 0x5a6143893bfdf81337609a6c20148ed06379c3547522401979e756145be37bf9; parent_hash: 0xf953…4cee; extrinsics (2): [0xd41b…c9e0, 0x971d…3999]    
+2024-03-28 14:02:06.510  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x53fbf45640dfc614a9248f812acc70f17adc32f84f81219bd0a03707fbe57444, previously 0x5a6143893bfdf81337609a6c20148ed06379c3547522401979e756145be37bf9.
+2024-03-28 14:02:06.511  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x53fb…7444)    
+2024-03-28 14:02:06.512  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:02:06.512  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:02:06.881  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535298 (0xff93…0302)    
+2024-03-28 14:02:06.883  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:02:06.883 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:02:06.883 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:02:06.883 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:02:06.884  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0x69d5617a0f632fda2cba290f9a21c38f5c047ac762864a62747bf6ce349eec1c; parent_hash: 0xf953…4cee; extrinsics (2): [0x0246…45c6, 0x971d…3999]    
+2024-03-28 14:02:06.886  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0xb78293a141bafa2d23d317f6ebe1c6d06e83302c2480182ddba161c88aa3af6e, previously 0x69d5617a0f632fda2cba290f9a21c38f5c047ac762864a62747bf6ce349eec1c.
+2024-03-28 14:02:06.886  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0xb782…af6e)    
+2024-03-28 14:02:06.886  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:02:06.886  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:02:10.883  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQ3EaFNrwWU9jL7QuJa79CBRbcsj1EKbgBHCr9JQ9UDVD from SetId(3).    
+2024-03-28 14:02:11.336  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535298 (0x0d59…237a), finalized #535296 (0x1a49…9640), ⬇ 34.3kiB/s ⬆ 28.5kiB/s    
+2024-03-28 14:02:11.374  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:12.541  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535299 (0x425f…fd02)    
+2024-03-28 14:02:12.743  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535299 (0xc501…bb65)    
+2024-03-28 14:02:16.337  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535299 (0x425f…fd02), finalized #535297 (0x8e24…1355), ⬇ 25.8kiB/s ⬆ 19.8kiB/s    
+2024-03-28 14:02:16.376  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:16.747  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKAaBLGjMbG5WmndYHMTYB2aeuYcGVvQnpHqCZeDGVuY8 from SetId(3).    
+2024-03-28 14:02:16.747  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWLZPy8QcBPMEFGBEWTBxbWRgdopHu4CjJS2ejofdmiPjb from SetId(3).    
+2024-03-28 14:02:16.747  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHwHj6epjWX4NvBsSficVvHW1wxrvSomG3tnq7gxsLvSA from SetId(3).    
+2024-03-28 14:02:18.583  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535300 (0x00bc…dccb)    
+2024-03-28 14:02:21.338  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535300 (0x00bc…dccb), finalized #535297 (0x8e24…1355), ⬇ 11.3kiB/s ⬆ 16.3kiB/s    
+2024-03-28 14:02:21.381  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:22.586  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKsDVDx5qSjBj7yqUqQBkuXuVQ6APagoqqDFzd4o98iPx from SetId(3).    
+2024-03-28 14:02:22.587  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHdkyiwj8ijNAHNzNVaJq9GXsmdWJtg7pkDtdymDCe2SN from SetId(3).    
+2024-03-28 14:02:22.587  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWDNh3a8CkZbtNonPiEpjjnrew9jASbMWq5EJ3LUqkF1DQ from SetId(3).    
+2024-03-28 14:02:22.587  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQhMHo2tPKZ7oNZakp8D6mZP9N2371H3nHti2nuAgHqBe from SetId(3).    
+2024-03-28 14:02:22.587  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdJytB4w8ZQjny81EgEmhPe97B4FPkkxW1pkAZtezgHQ from SetId(3).    
+2024-03-28 14:02:24.708  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535301 (0xaba3…d629)    
+2024-03-28 14:02:24.710  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:02:24.711 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:02:24.711 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:02:24.711 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:02:24.712  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0xa32a25edb472d7b547f0b55edacf7b037d50099dbf9a3c1319330e7599b07423; parent_hash: 0xf953…4cee; extrinsics (2): [0xb348…796a, 0x2ec5…6657]    
+2024-03-28 14:02:24.714  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x6934442c20ed96df6bb79f1e764e9b659e09cf2935bc2c71216d4aaaf42e4962, previously 0xa32a25edb472d7b547f0b55edacf7b037d50099dbf9a3c1319330e7599b07423.
+2024-03-28 14:02:24.715  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x6934…4962)    
+2024-03-28 14:02:24.715  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:02:24.715  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:02:26.342  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535301 (0xaba3…d629), finalized #535298 (0x0d59…237a), ⬇ 21.0kiB/s ⬆ 27.1kiB/s    
+2024-03-28 14:02:26.382  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:28.712  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQ3EaFNrwWU9jL7QuJa79CBRbcsj1EKbgBHCr9JQ9UDVD from SetId(3).    
+2024-03-28 14:02:28.712  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWC1Zuv6gHwiRSJC5x6Ca7Dd5NEfCQk9pk7jy8iXPxsiwv from SetId(3).    
+2024-03-28 14:02:30.520  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535302 (0x24ed…c5de)    
+2024-03-28 14:02:30.522  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:02:30.523 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:02:30.523 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:02:30.523 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:02:30.524  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0xd66aa31241be515fb9c98d6281581f34500c747dd891bb21275f6d8581e5c07e; parent_hash: 0xf953…4cee; extrinsics (2): [0xaea3…9e2c, 0x49e4…7f56]    
+2024-03-28 14:02:30.527  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0xbea0860203354e4270675f9baaf7a822fb8e3a92e820ef0213b2837c61939d5f, previously 0xd66aa31241be515fb9c98d6281581f34500c747dd891bb21275f6d8581e5c07e.
+2024-03-28 14:02:30.527  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0xbea0…9d5f)    
+2024-03-28 14:02:30.528  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:02:30.528  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:02:31.343  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535302 (0x24ed…c5de), finalized #535299 (0x425f…fd02), ⬇ 11.0kiB/s ⬆ 9.1kiB/s    
+2024-03-28 14:02:31.383  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:34.522  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHwHj6epjWX4NvBsSficVvHW1wxrvSomG3tnq7gxsLvSA from SetId(3).    
+2024-03-28 14:02:36.348  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535302 (0x24ed…c5de), finalized #535300 (0x00bc…dccb), ⬇ 21.4kiB/s ⬆ 29.3kiB/s    
+2024-03-28 14:02:36.389  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:36.819  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535303 (0xb448…ba25)    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWLZPy8QcBPMEFGBEWTBxbWRgdopHu4CjJS2ejofdmiPjb from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHdkyiwj8ijNAHNzNVaJq9GXsmdWJtg7pkDtdymDCe2SN from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWC1Zuv6gHwiRSJC5x6Ca7Dd5NEfCQk9pk7jy8iXPxsiwv from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQhMHo2tPKZ7oNZakp8D6mZP9N2371H3nHti2nuAgHqBe from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKsDVDx5qSjBj7yqUqQBkuXuVQ6APagoqqDFzd4o98iPx from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdJytB4w8ZQjny81EgEmhPe97B4FPkkxW1pkAZtezgHQ from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWDNh3a8CkZbtNonPiEpjjnrew9jASbMWq5EJ3LUqkF1DQ from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKAaBLGjMbG5WmndYHMTYB2aeuYcGVvQnpHqCZeDGVuY8 from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQ3EaFNrwWU9jL7QuJa79CBRbcsj1EKbgBHCr9JQ9UDVD from SetId(3).    
+2024-03-28 14:02:40.820  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWBhsJ9jn7ydL6uc91BRFYCqZp1cxfcs3H5VjhvVnUdm5i from SetId(3).    
+2024-03-28 14:02:41.352  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #535303 (0xb448…ba25), finalized #535301 (0xaba3…d629), ⬇ 20.1kiB/s ⬆ 17.2kiB/s    
+2024-03-28 14:02:41.394  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:42.708  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535304 (0x04d4…8fb7)    
+2024-03-28 14:02:46.355  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #535304 (0x04d4…8fb7), finalized #535301 (0xaba3…d629), ⬇ 18.9kiB/s ⬆ 18.8kiB/s    
+2024-03-28 14:02:46.394  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:48.558  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535305 (0xaf9d…3cde)    
+2024-03-28 14:02:48.560  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:02:48.561 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:02:48.561 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:02:48.561 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:02:48.562  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0x1def808100465dba66bd3b6127344fb5aed9dc353f784741114e4f0e3e30904e; parent_hash: 0xf953…4cee; extrinsics (2): [0x6cdc…881a, 0x69bc…4260]    
+2024-03-28 14:02:48.565  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x1e05214d7d3e95fb21793a4e007d97f3f0ef690232fa9162fddab9faa9cb7dce, previously 0x1def808100465dba66bd3b6127344fb5aed9dc353f784741114e4f0e3e30904e.
+2024-03-28 14:02:48.567  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x1e05…7dce)    
+2024-03-28 14:02:48.567  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:02:48.567  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:02:51.360  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #535305 (0xaf9d…3cde), finalized #535302 (0x24ed…c5de), ⬇ 15.5kiB/s ⬆ 19.8kiB/s    
+2024-03-28 14:02:51.400  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHdkyiwj8ijNAHNzNVaJq9GXsmdWJtg7pkDtdymDCe2SN from SetId(3).    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQhMHo2tPKZ7oNZakp8D6mZP9N2371H3nHti2nuAgHqBe from SetId(3).    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWLZPy8QcBPMEFGBEWTBxbWRgdopHu4CjJS2ejofdmiPjb from SetId(3).    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWDNh3a8CkZbtNonPiEpjjnrew9jASbMWq5EJ3LUqkF1DQ from SetId(3).    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQ3EaFNrwWU9jL7QuJa79CBRbcsj1EKbgBHCr9JQ9UDVD from SetId(3).    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWC1Zuv6gHwiRSJC5x6Ca7Dd5NEfCQk9pk7jy8iXPxsiwv from SetId(3).    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKsDVDx5qSjBj7yqUqQBkuXuVQ6APagoqqDFzd4o98iPx from SetId(3).    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdJytB4w8ZQjny81EgEmhPe97B4FPkkxW1pkAZtezgHQ from SetId(3).    
+2024-03-28 14:02:52.559  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHwHj6epjWX4NvBsSficVvHW1wxrvSomG3tnq7gxsLvSA from SetId(3).    
+2024-03-28 14:02:54.558  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535306 (0xb5b4…eed5)    
+2024-03-28 14:02:54.560  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:02:54.561 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:02:54.561 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:02:54.561 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:02:54.562  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0x60b88577fcef0beb9b47da181a8bb47fc096535be7c1e42ab3b8bc53c3963dc6; parent_hash: 0xf953…4cee; extrinsics (2): [0x125f…9051, 0x7569…4219]    
+2024-03-28 14:02:54.566  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x2f5266b5583ea3e01b485ce42e08ef19db0ae318d97f603faa92fb3fd9c04de6, previously 0x60b88577fcef0beb9b47da181a8bb47fc096535be7c1e42ab3b8bc53c3963dc6.
+2024-03-28 14:02:54.566  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x2f52…4de6)    
+2024-03-28 14:02:54.567  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:02:54.567  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:02:56.364  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535306 (0xb5b4…eed5), finalized #535303 (0xb448…ba25), ⬇ 9.8kiB/s ⬆ 6.1kiB/s    
+2024-03-28 14:02:56.405  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:00.499  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535307 (0xa775…1f4e)    
+2024-03-28 14:03:01.367  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535307 (0xa775…1f4e), finalized #535304 (0x04d4…8fb7), ⬇ 35.6kiB/s ⬆ 31.6kiB/s    
+2024-03-28 14:03:01.407  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:04.502  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHdkyiwj8ijNAHNzNVaJq9GXsmdWJtg7pkDtdymDCe2SN from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWLZPy8QcBPMEFGBEWTBxbWRgdopHu4CjJS2ejofdmiPjb from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQ3EaFNrwWU9jL7QuJa79CBRbcsj1EKbgBHCr9JQ9UDVD from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQhMHo2tPKZ7oNZakp8D6mZP9N2371H3nHti2nuAgHqBe from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWC1Zuv6gHwiRSJC5x6Ca7Dd5NEfCQk9pk7jy8iXPxsiwv from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdJytB4w8ZQjny81EgEmhPe97B4FPkkxW1pkAZtezgHQ from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKsDVDx5qSjBj7yqUqQBkuXuVQ6APagoqqDFzd4o98iPx from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKAaBLGjMbG5WmndYHMTYB2aeuYcGVvQnpHqCZeDGVuY8 from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWDNh3a8CkZbtNonPiEpjjnrew9jASbMWq5EJ3LUqkF1DQ from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHwHj6epjWX4NvBsSficVvHW1wxrvSomG3tnq7gxsLvSA from SetId(3).    
+2024-03-28 14:03:04.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWBhsJ9jn7ydL6uc91BRFYCqZp1cxfcs3H5VjhvVnUdm5i from SetId(3).    
+2024-03-28 14:03:06.370  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (7 peers), best: #535307 (0xa775…1f4e), finalized #535305 (0xaf9d…3cde), ⬇ 97.4kiB/s ⬆ 44.1kiB/s    
+2024-03-28 14:03:06.408  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:06.564  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535308 (0x6cde…af85)    
+2024-03-28 14:03:11.373  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535308 (0x6cde…af85), finalized #535305 (0xaf9d…3cde), ⬇ 17.0kiB/s ⬆ 10.9kiB/s    
+2024-03-28 14:03:11.409  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:12.497  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535309 (0x798c…66a3)    
+2024-03-28 14:03:12.499  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:03:12.500 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:03:12.500 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:03:12.500 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:03:12.500  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0xcf77ef5c67c608e73d1fa97fe1b1268993bab2ce48dd9866d70c12279c7395e5; parent_hash: 0xf953…4cee; extrinsics (2): [0x44de…1b06, 0x8ef0…0963]    
+2024-03-28 14:03:12.503  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x008c04127b6fd2361d0bc76d78ac64ae7535fb1dbee4d07ac7d34409808220d1, previously 0xcf77ef5c67c608e73d1fa97fe1b1268993bab2ce48dd9866d70c12279c7395e5.
+2024-03-28 14:03:12.503  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x008c…20d1)    
+2024-03-28 14:03:12.504  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:03:12.504  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:03:16.375  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535309 (0x798c…66a3), finalized #535306 (0xb5b4…eed5), ⬇ 21.0kiB/s ⬆ 41.2kiB/s    
+2024-03-28 14:03:16.412  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHwHj6epjWX4NvBsSficVvHW1wxrvSomG3tnq7gxsLvSA from SetId(3).    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdJytB4w8ZQjny81EgEmhPe97B4FPkkxW1pkAZtezgHQ from SetId(3).    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQ3EaFNrwWU9jL7QuJa79CBRbcsj1EKbgBHCr9JQ9UDVD from SetId(3).    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWLZPy8QcBPMEFGBEWTBxbWRgdopHu4CjJS2ejofdmiPjb from SetId(3).    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHdkyiwj8ijNAHNzNVaJq9GXsmdWJtg7pkDtdymDCe2SN from SetId(3).    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQhMHo2tPKZ7oNZakp8D6mZP9N2371H3nHti2nuAgHqBe from SetId(3).    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWC1Zuv6gHwiRSJC5x6Ca7Dd5NEfCQk9pk7jy8iXPxsiwv from SetId(3).    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWDNh3a8CkZbtNonPiEpjjnrew9jASbMWq5EJ3LUqkF1DQ from SetId(3).    
+2024-03-28 14:03:16.501  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKsDVDx5qSjBj7yqUqQBkuXuVQ6APagoqqDFzd4o98iPx from SetId(3).    
+2024-03-28 14:03:18.745  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535310 (0x9f69…7600)    
+2024-03-28 14:03:18.748  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:03:18.749 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:03:18.749 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:03:18.749 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:03:18.750  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (2 ms) [hash: 0x56fd3e361a7bd3420f8d60b96569adf499135f569290b98a8727857d2f38ea60; parent_hash: 0xf953…4cee; extrinsics (2): [0x2723…9ef9, 0xb314…0a34]    
+2024-03-28 14:03:18.754  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x7a53237926cf77fd2948ca06660ca15fe18b36c2422772725a58d452cccc4876, previously 0x56fd3e361a7bd3420f8d60b96569adf499135f569290b98a8727857d2f38ea60.
+2024-03-28 14:03:18.754  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x7a53…4876)    
+2024-03-28 14:03:18.755  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:03:18.755  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:03:21.377  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535310 (0x9f69…7600), finalized #535308 (0x6cde…af85), ⬇ 20.4kiB/s ⬆ 27.8kiB/s    
+2024-03-28 14:03:21.414  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:24.498  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535311 (0x70d0…bf6a)    
+2024-03-28 14:03:26.382  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535311 (0x70d0…bf6a), finalized #535308 (0x6cde…af85), ⬇ 16.1kiB/s ⬆ 16.2kiB/s    
+2024-03-28 14:03:26.420  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:28.502  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQ3EaFNrwWU9jL7QuJa79CBRbcsj1EKbgBHCr9JQ9UDVD from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKAaBLGjMbG5WmndYHMTYB2aeuYcGVvQnpHqCZeDGVuY8 from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHdkyiwj8ijNAHNzNVaJq9GXsmdWJtg7pkDtdymDCe2SN from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWBhsJ9jn7ydL6uc91BRFYCqZp1cxfcs3H5VjhvVnUdm5i from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWDNh3a8CkZbtNonPiEpjjnrew9jASbMWq5EJ3LUqkF1DQ from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWKsDVDx5qSjBj7yqUqQBkuXuVQ6APagoqqDFzd4o98iPx from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWMdJytB4w8ZQjny81EgEmhPe97B4FPkkxW1pkAZtezgHQ from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWQhMHo2tPKZ7oNZakp8D6mZP9N2371H3nHti2nuAgHqBe from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWLZPy8QcBPMEFGBEWTBxbWRgdopHu4CjJS2ejofdmiPjb from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWHwHj6epjWX4NvBsSficVvHW1wxrvSomG3tnq7gxsLvSA from SetId(3).    
+2024-03-28 14:03:28.503  WARN tokio-runtime-worker peerset: [Relaychain] Trying to remove unknown reserved node 12D3KooWC1Zuv6gHwiRSJC5x6Ca7Dd5NEfCQk9pk7jy8iXPxsiwv from SetId(3).    
+2024-03-28 14:03:30.594  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535312 (0x1abb…ecf2)    
+2024-03-28 14:03:31.226  INFO tokio-runtime-worker sc_informant: [Relaychain] ♻️  Reorg on #535312,0x1abb…ecf2 to #535312,0xf3be…9d73, common ancestor #535311,0x70d0…bf6a    
+2024-03-28 14:03:31.226  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535312 (0xf3be…9d73)    
+2024-03-28 14:03:31.387  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535312 (0xf3be…9d73), finalized #535309 (0x798c…66a3), ⬇ 31.5kiB/s ⬆ 18.7kiB/s    
+2024-03-28 14:03:31.423  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:36.387  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (9 peers), best: #535312 (0xf3be…9d73), finalized #535310 (0x9f69…7600), ⬇ 16.2kiB/s ⬆ 11.6kiB/s    
+2024-03-28 14:03:36.425  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #1 (0x3e78…9838), finalized #0 (0xf953…4cee), ⬇ 0 ⬆ 0    
+2024-03-28 14:03:36.491  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535313 (0xe22e…8d9c)    
+2024-03-28 14:03:36.493  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:03:36.494 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:03:36.494 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:03:36.494 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:03:36.495  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0x236bb2573ced4dfa287043ca6a2cf168ae7f518973f5d1d9c17154af0f90c247; parent_hash: 0xf953…4cee; extrinsics (2): [0x3f01…0b39, 0xdc75…12fd]    
+2024-03-28 14:03:36.498  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x0677f1518231f827474aeb340eae1776b0be994dda761af7d5a6bbb35dd9ecd2, previously 0x236bb2573ced4dfa287043ca6a2cf168ae7f518973f5d1d9c17154af0f90c247.
+2024-03-28 14:03:36.499  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x0677…ecd2)    
+2024-03-28 14:03:36.499  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:03:36.499  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb
+2024-03-28 14:03:36.866  INFO tokio-runtime-worker sc_informant: [Relaychain] ♻️  Reorg on #535313,0xe22e…8d9c to #535313,0x8796…87dd, common ancestor #535312,0xf3be…9d73    
+2024-03-28 14:03:36.866  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #535313 (0x8796…87dd)    
+2024-03-28 14:03:36.868  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🙌 Starting consensus session on top of parent 0xf953cea773de03ece1590192daad3cb02a0fdb2cf140d4482a4b69cfdf424cee    
+2024-03-28 14:03:36.869 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Attempting to push transactions from the pool.    
+2024-03-28 14:03:36.869 DEBUG tokio-runtime-worker basic-authorship: [Parachain] Pool status: PoolStatus { ready: 0, ready_bytes: 0, future: 0, future_bytes: 0 }    
+2024-03-28 14:03:36.869 DEBUG tokio-runtime-worker basic-authorship: [Parachain] No more transactions, proceeding with proposing.    
+2024-03-28 14:03:36.870  INFO tokio-runtime-worker sc_basic_authorship::basic_authorship: [Parachain] 🎁 Prepared block for proposing at 1 (1 ms) [hash: 0x76cffae0ee8919b637596ebfc36c59285b0121ceae93efeec46e499e52c938aa; parent_hash: 0xf953…4cee; extrinsics (2): [0x71ec…8697, 0xdc75…12fd]    
+2024-03-28 14:03:36.873  INFO tokio-runtime-worker aura::cumulus: [Parachain] 🔖 Pre-sealed block for proposal at 1. Hash now 0x761ec138e6b76489e3a9237eb1e7aca19ffb42c9ac3d1974a946e285a8cf1bc3, previously 0x76cffae0ee8919b637596ebfc36c59285b0121ceae93efeec46e499e52c938aa.
+2024-03-28 14:03:36.873  INFO tokio-runtime-worker substrate: [Parachain] ✨ Imported #1 (0x761e…1bc3)    
+2024-03-28 14:03:36.873  INFO tokio-runtime-worker aura::cumulus: [Parachain] PoV size { header: 0.2197265625kb, extrinsics: 3.5029296875kb, storage_proof: 2.6513671875kb }
+2024-03-28 14:03:36.873  INFO tokio-runtime-worker aura::cumulus: [Parachain] Compressed PoV size: 5.490234375kb

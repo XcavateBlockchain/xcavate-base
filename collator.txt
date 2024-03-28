@@ -11,8 +11,10 @@
 --execution wasm \
 --chain paseo.json \
 --port 30343 \
---rpc-port 9977
+--rpc-port 9977 \
+--blocks-pruning=256
 
+--bob--
 
 
 ./target/release/parachain-template-node \
@@ -29,3 +31,7 @@
 --chain paseo.json \
 --port 30344 \
 --rpc-port 9978 \
+--blocks-pruning=256
+
+
+/Users/ganesholi/Library/Application Support
