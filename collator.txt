@@ -4,7 +4,7 @@
 --collator \
 --force-authoring \
 --chain raw-parachain-chainspec.json \
---base-path ./tmp/parachain/alice \
+--base-path ./tmp/node01 \
 --port 40333 \
 --rpc-port 8844 \
 -- \
@@ -13,6 +13,43 @@
 --port 30343 \
 --rpc-port 9977 \
 --blocks-pruning=256
+
+
+
+
+
+
+./target/release/parachain-template-node \
+  -lbasic-authorship=trace \
+  --alice \
+  --collator \
+  --chain raw-parachain-chainspec.json \
+  --base-path ./tmp/parachain/alice \
+  --port 40333 \
+  --rpc-port 8844 \
+  -- \
+  --execution wasm \
+  --chain paseo.json \
+  --port 30343 \
+  --rpc-port 9977
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 --bob--
 

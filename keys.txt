@@ -1,69 +1,35 @@
 ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key generate --scheme Sr25519 --password-interactive
 Key password: 
-Secret phrase:       slide avocado life math lonely witness road actor margin cry habit note
+Secret phrase:       rely fever toast rally hover flavor gain talent amazing age snack foil
   Network ID:        substrate
-  Secret seed:       0xd8fb0a5ab8d8d1b123ed5b114ad2bb362b6e6d24627e4a9a82213f71bb8ae69c
-  Public key (hex):  0xb456de0f9cc4cdbc4e41e89cb1f28df44db13b1ce543dd21fe32027927dfb234
-  Account ID:        0xb456de0f9cc4cdbc4e41e89cb1f28df44db13b1ce543dd21fe32027927dfb234
-  Public key (SS58): 5G9AHGxcQxCjqszu6mCSpC5b5fGZ4oBzdyGbQuNNYbQTaHR2
-  SS58 Address:      5G9AHGxcQxCjqszu6mCSpC5b5fGZ4oBzdyGbQuNNYbQTaHR2
+  Secret seed:       0x8bb285b6ca8017a33a51274470533dfa4e3d6a5f6fd2889aba885f16ee91bf1a
+  Public key (hex):  0xf43b3861140b8fa1d5ddf855339cc58c587ea5ff8745e43e96572af78e059a7d
+  Account ID:        0xf43b3861140b8fa1d5ddf855339cc58c587ea5ff8745e43e96572af78e059a7d
+  Public key (SS58): 5Haw8g3KsvuPVhD4CFdQxbCQvkrWzSLt6ArHw94npgnUGVDQ
+  SS58 Address:      5Haw8g3KsvuPVhD4CFdQxbCQvkrWzSLt6ArHw94npgnUGVDQ
+ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key inspect --password-interactive --scheme Ed25519 "rely fever toast rally hover flavor gain talent amazing age snack foil"
+Key password: 
+Secret phrase:       rely fever toast rally hover flavor gain talent amazing age snack foil
+  Network ID:        substrate
+  Secret seed:       0x8bb285b6ca8017a33a51274470533dfa4e3d6a5f6fd2889aba885f16ee91bf1a
+  Public key (hex):  0x2115ae9151a540aa24dd054cd7b54eaf7251141f74f75ae7b633a65d255492de
+  Account ID:        0x2115ae9151a540aa24dd054cd7b54eaf7251141f74f75ae7b633a65d255492de
+  Public key (SS58): 5Cp5stcEVtxQU1nTYpUQjKEPecVEXgq9LvZ93bFWhcuZH4v6
+  SS58 Address:      5Cp5stcEVtxQU1nTYpUQjKEPecVEXgq9LvZ93bFWhcuZH4v6
 ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % 
 
-ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key inspect --password-interactive --scheme Ed25519 "slide avocado life math lonely witness road actor margin cry habit note"
-Key password: 
-Secret phrase:       slide avocado life math lonely witness road actor margin cry habit note
-  Network ID:        substrate
-  Secret seed:       0xd8fb0a5ab8d8d1b123ed5b114ad2bb362b6e6d24627e4a9a82213f71bb8ae69c
-  Public key (hex):  0xfbc06400f2835fd287aae4379bb1e1dc8a55514d476fb1d2f52febe1361b99f9
-  Account ID:        0xfbc06400f2835fd287aae4379bb1e1dc8a55514d476fb1d2f52febe1361b99f9
-  Public key (SS58): 5Hko2b3hjCUoALSKh4mDLj82WHksgMhLoqauJ6FuVu4Cnite
-  SS58 Address:      5Hko2b3hjCUoALSKh4mDLj82WHksgMhLoqauJ6FuVu4Cnite
 
-
-ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key insert --base-path ./tmp/parachain \
+ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key insert --base-path ./tmp/node01 \
   --chain raw-parachain-chainspec.json \
   --scheme Sr25519 \
-  --suri "slide avocado life math lonely witness road actor margin cry habit note" \
+  --suri "rely fever toast rally hover flavor gain talent amazing age snack foil" \
   --password-interactive \
   --key-type aura
 
 ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key insert \
-  --base-path ./tmp/parachain \
+  --base-path ./tmp/node01 \
   --chain raw-parachain-chainspec.json \
   --scheme Ed25519 \
-  --suri "slide avocado life math lonely witness road actor margin cry habit note" \
+  --suri "rely fever toast rally hover flavor gain talent amazing age snack foil" \
   --password-interactive \
   --key-type gran
-
---bob--
-
-
-ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key generate --scheme Sr25519 --password-interactive
-Key password: 
-Secret phrase:       client bus flip curious half glory hat review fire jungle canyon loud
-  Network ID:        substrate
-  Secret seed:       0x21470094ab93cc19c2ba07808fc0e54849ae7b02541c201daca308e09b7a1ed8
-  Public key (hex):  0xac6f3cacb7539c18cc183fc4548c0c83611cda6cdb4eca7a3e0016928dd89303
-  Account ID:        0xac6f3cacb7539c18cc183fc4548c0c83611cda6cdb4eca7a3e0016928dd89303
-  Public key (SS58): 5Fxo8wDjGLwRWhDdz3YKT54bthkK8aPpxxp12P2KHKs5TgDM
-  SS58 Address:      5Fxo8wDjGLwRWhDdz3YKT54bthkK8aPpxxp12P2KHKs5TgDM
-ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key inspect --password-interactive --scheme Ed25519 " client bus flip curious half glory hat review fire jungle canyon loud"
-Key password: 
-Secret phrase:        client bus flip curious half glory hat review fire jungle canyon loud
-  Network ID:        substrate
-  Secret seed:       0x21470094ab93cc19c2ba07808fc0e54849ae7b02541c201daca308e09b7a1ed8
-  Public key (hex):  0x9efa3b63ba72d51009e4473110dbe2cac2f1ec67caf6b88cd3003cf7feee774e
-  Account ID:        0x9efa3b63ba72d51009e4473110dbe2cac2f1ec67caf6b88cd3003cf7feee774e
-  Public key (SS58): 5Ff9kt3xiWr1znuQ3wdWcw8uGb1t2yPSxEYXeJ1sNoNXhnmP
-  SS58 Address:      5Ff9kt3xiWr1znuQ3wdWcw8uGb1t2yPSxEYXeJ1sNoNXhnmP
-ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % 
-
-ganesholi@Ganeshs-MacBook-Air xcav-polkadot-runtime-template % ./target/release/parachain-template-node key insert --base-path ./tmp/parachain/bob \
-  --chain raw-parachain-chainspec.json \
-  --scheme Sr25519 \
-  --suri "client bus flip curious half glory hat review fire jungle canyon loud" \
-  --password-interactive \
-  --key-type aura
-
-
-/Users/ganesholi/Library/Application Support
