@@ -1,0 +1,23 @@
+for node01
+ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % ./target/release/parachain-template-node key generate --scheme Sr25519 --password-interactive
+Key password: 
+Secret phrase:       oxygen high curve acid feed nasty dirt steak rare horse fuel someone
+  Network ID:        substrate
+  Secret seed:       0x7635706226a5ae0ac06f3715c0a514dc7bdde19b71e222bf8296dda6f46bf5b3
+  Public key (hex):  0x3eac4cd74a54258a7e3c7c7ed5027181683d0cd144a058df4ad287d37a35940a
+  Account ID:        0x3eac4cd74a54258a7e3c7c7ed5027181683d0cd144a058df4ad287d37a35940a
+  Public key (SS58): 5DUt1XPfHN92uXszqBaW9MkWyqcxEyBMrpGcoupKknkcFXuK
+  SS58 Address:      5DUt1XPfHN92uXszqBaW9MkWyqcxEyBMrpGcoupKknkcFXuK
+ganesholi@Ganeshs-MacBook-Air polkadot-runtime-template % 
+
+./target/release/parachain-template-node key insert --base-path ./tmp/node01 \
+  --chain raw-parachain-chainspec.json \
+  --scheme Sr25519 \
+  --suri "oxygen high curve acid feed nasty dirt steak rare horse fuel someone" \
+  --password-interactive \
+  --key-type aura
+
+
+
+// aura key for node02
+5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty

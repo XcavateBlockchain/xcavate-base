@@ -134,7 +134,7 @@ pub type SignedExtra = (
     frame_system::CheckNonce<Runtime>,
     frame_system::CheckWeight<Runtime>,
     pallet_transaction_payment::ChargeTransactionPayment<Runtime>,
-    pallet_asset_tx_payment::ChargeAssetTxPayment<Runtime>,
+    // pallet_asset_tx_payment::ChargeAssetTxPayment<Runtime>,
 );
 
 /// Unchecked extrinsic type as expected by this runtime.
@@ -1019,14 +1019,14 @@ impl pallet_nfts::Config for Runtime {
 	type Locker = ();
 }
 
-impl pallet_asset_tx_payment::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
-	type Fungibles = Assets;
-	type OnChargeAssetTransaction = pallet_asset_tx_payment::FungiblesAdapter<
-		pallet_assets::BalanceToAssetBalance<Balances, Runtime, ConvertInto>,
-		CreditToBlockAuthor,
-	>;
-}
+// impl pallet_asset_tx_payment::Config for Runtime {
+// 	type RuntimeEvent = RuntimeEvent;
+// 	type Fungibles = Assets;
+// 	type OnChargeAssetTransaction = pallet_asset_tx_payment::FungiblesAdapter<
+// 		pallet_assets::BalanceToAssetBalance<Balances, Runtime, ConvertInto>,
+// 		CreditToBlockAuthor,
+// 	>;
+// }
 
 parameter_types! {
 	pub const NftFractionalizationPalletId: PalletId = PalletId(*b"fraction");
@@ -1080,7 +1080,7 @@ construct_runtime!(
         TransactionPayment: pallet_transaction_payment = 11,
         Assets: pallet_assets = 12,
         Treasury: pallet_treasury::{Pallet, Call, Storage, Config<T>, Event<T>} = 13,
-        AssetTxPayment: pallet_asset_tx_payment = 14,
+        // AssetTxPayment: pallet_asset_tx_payment = 14,
 
         // Governance
         Sudo: pallet_sudo = 15,
