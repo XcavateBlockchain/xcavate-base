@@ -99,10 +99,11 @@ pub fn xcavate_config() -> ChainSpec {
         .collect();
     signatories.sort();
 
-    let sudo_account = pallet_multisig::<parachain_template_runtime::Runtime>::multi_account_id(
-        &signatories[..],
-        2,
-    );
+    let sudo_account =
+        pallet_multisig::Pallet::<parachain_template_runtime::Runtime>::multi_account_id(
+            &signatories[..],
+            2,
+        );
 
     let collators: Vec<_> = INITIAL_XCAVATE_COLLATORS
         .iter()

@@ -917,7 +917,7 @@ construct_runtime!(
         ParachainInfo: parachain_info = 3,
         Proxy: pallet_proxy = 4,
         Utility: pallet_utility = 5,
-        Multisig: pallet_multisig = 6,
+        Multisig: pallet_multisig::{Pallet, Call, Storage, Event<T>} = 6,
         Scheduler: pallet_scheduler::{Pallet, Call, Storage, Event<T>} = 7,
         Preimage: pallet_preimage::{Pallet, Call, Storage, Event<T>, HoldReason} = 8,
 
