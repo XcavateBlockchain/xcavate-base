@@ -7238,6 +7238,7 @@ dependencies = [
  "futures",
  "jsonrpsee",
  "log",
+ "pallet-multisig",
  "pallet-transaction-payment-rpc",
  "parachain-template-runtime",
  "parity-scale-codec",
