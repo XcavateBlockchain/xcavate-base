@@ -6,7 +6,7 @@ use parachain_template_runtime::{
 use sc_chain_spec::{ChainSpecExtension, ChainSpecGroup};
 use sc_service::ChainType;
 use serde::{Deserialize, Serialize};
-use sp_core::{sr25519, Pair, Public};
+use sp_core::{sr25519, Pair, Public, Ss58Codec, UncheckedInto};
 use sp_runtime::traits::{IdentifyAccount, Verify};
 
 const TOTAL_INITIAL_ISSUANCE: Balance = 100_000_000 * DOLLARS;
