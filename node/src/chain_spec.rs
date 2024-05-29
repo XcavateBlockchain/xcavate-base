@@ -25,9 +25,8 @@ const INITIAL_ISSUANCE_PER_SIGNATORY: Balance = 500 * DOLLARS;
 
 const INITIAL_ISSUANCE_PER_COLLATOR: Balance = 200 * DOLLARS;
 
-
 pub fn get_xcavate_session_keys(keys: AuraId) -> parachain_template_runtime::SessionKeys {
-	parachain_template_runtime::SessionKeys { aura: keys }
+    parachain_template_runtime::SessionKeys { aura: keys }
 }
 
 /// Specialized `ChainSpec` for the normal parachain runtime.
@@ -96,34 +95,30 @@ pub fn xcavate_config() -> ChainSpec {
 
     let mut signatories: Vec<_> = INITIAL_XCAVATE_SUDO_SIGNATORIES
         .iter()
-        .chain(vec![id].iter())
         .map(|ss58| AccountId::from_ss58check(ss58).unwrap())
         .collect();
     signatories.sort();
 
-    let sudo_account = pallet_multisig::Pallet::<parachain_template_runtime::Runtime>::multi_account_id(
+    let sudo_account = pallet_multisig::<parachain_template_runtime::Runtime>::multi_account_id(
         &signatories[..],
         2,
-    )
+    );
 
     let collators: Vec<_> = INITIAL_XCAVATE_COLLATORS
-		.iter()
-		.map(|ss58| AccountId::from_ss58check(ss58).unwrap())
-		.collect();
+        .iter()
+        .map(|ss58| AccountId::from_ss58check(ss58).unwrap())
+        .collect();
 
     let mut balances = vec![];
 
     for collator in collators.clone() {
-		balances
-			.push((collator, INITIAL_ISSUANCE_PER_COLLATOR));
-	}
+        balances.push((collator, INITIAL_ISSUANCE_PER_COLLATOR));
+    }
 
     for signatory in INITIAL_XCAVATE_SUDO_SIGNATORIES.iter() {
-		let account_id = AccountId::from_ss58check(signatory).unwrap();
-		balances.push((account_id, pendulum::INITIAL_ISSUANCE_PER_SIGNATORY));
-	}
-
-
+        let account_id = AccountId::from_ss58check(signatory).unwrap();
+        balances.push((account_id, INITIAL_ISSUANCE_PER_SIGNATORY));
+    }
 
     ChainSpec::builder(
         parachain_template_runtime::WASM_BINARY
@@ -196,13 +191,12 @@ fn xcavate_genesis(
     sudo_account: AccountId,
     id: ParaId,
 ) -> serde_json::Value {
-
     let mut genesis_issuance = TOTAL_INITIAL_ISSUANCE;
-	for balance in balances.clone() {
-		genesis_issuance -= balance.1;
-	}
+    for balance in balances.clone() {
+        genesis_issuance -= balance.1;
+    }
 
-	balances.push((sudo_account.clone(), genesis_issuance));
+    balances.push((sudo_account.clone(), genesis_issuance));
 
     serde_json::json!({
         "balances": {
