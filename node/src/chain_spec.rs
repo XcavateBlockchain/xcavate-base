@@ -1,16 +1,12 @@
 use cumulus_primitives_core::ParaId;
 use parachain_template_runtime::{
     constants::currency::{DOLLARS, EXISTENTIAL_DEPOSIT},
-    AccountId, AuraId, Balance, Signature,
+    AccountId, AuraId, Balance,
 };
 use sc_chain_spec::{ChainSpecExtension, ChainSpecGroup};
 use sc_service::ChainType;
 use serde::{Deserialize, Serialize};
-use sp_core::{
-    crypto::{Ss58Codec, UncheckedInto},
-    Pair, Public,
-};
-use sp_runtime::traits::{IdentifyAccount, Verify};
+use sp_core::crypto::{Ss58Codec, UncheckedInto};
 
 const TOTAL_INITIAL_ISSUANCE: Balance = 100_000_000 * DOLLARS;
 
